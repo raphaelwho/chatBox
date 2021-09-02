@@ -1,0 +1,43 @@
+{
+  "name": "galileo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "react-dev": "webpack --mode development --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blue-Barracudaz/galileo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blue-Barracudaz/galileo/issues"
+  },
+  "homepage": "https://github.com/Blue-Barracudaz/galileo#readme",
+  "dependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "axios": "^0.21.1",
+    "babel-loader": "^8.2.2",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jest": "^27.1.0",
+    "jquery": "^3.6.0",
+    "nodemon": "^2.0.12",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.51.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.8.0"
+  }
+}
