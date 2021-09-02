@@ -55,4 +55,5 @@
     "regenerator-runtime": "^0.13.9",
     "webpack-cli": "^4.8.0"
   }
+
 }
