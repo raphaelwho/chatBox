@@ -7,6 +7,7 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR,
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -16,6 +17,13 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
     ],
   },
 };

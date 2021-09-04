@@ -52,8 +52,9 @@
     "webpack": "^5.51.1"
   },
   "devDependencies": {
+    "css-loader": "^6.2.0",
     "regenerator-runtime": "^0.13.9",
+    "style-loader": "^3.2.1",
     "webpack-cli": "^4.8.0"
   }
-
 }

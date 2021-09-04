@@ -1,4 +1,6 @@
 import React from 'react';
+import BookingList from './shared/bookingList/bookingList.jsx';
+import './app.css';
 
 class App extends React.Component {
   constructor (props) {
@@ -10,6 +12,7 @@ class App extends React.Component {
     return (
       <div>
         HELLO GALILEO
+        <BookingList />
       </div>
     )
   };
