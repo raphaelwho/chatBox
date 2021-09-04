@@ -6,8 +6,8 @@ let password;
 let host;
 
 if (process.env.NODE_ENV === 'development') {
-  database = 'test5';
-  user = process.env.PG__DB_USER_DEV;
+  database = 'postgres';
+  user = process.env.PG_DB_USER_DEV;
   password = process.env.PG_DB_PASS_DEV;
   host = 'localhost';
 } else if (process.env.NODE_ENV === 'test') {
