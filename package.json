@@ -5,6 +5,9 @@
   "main": "index.js",
   "jest": {
     "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/test/cssStub.js"
+    },
     "setupFilesAfterEnv": [
       "<rootDir>/test/enzyme.config.js"
     ],
