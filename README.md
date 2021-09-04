@@ -2,7 +2,7 @@
 ## To initialize the project:
 1. npm install
 2. npm run react-dev
-3. npm start.
+3. npm start
 
 Go to http://localhost:3000 to view the project.
 
