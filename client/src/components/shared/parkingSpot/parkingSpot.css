@@ -1,5 +1,4 @@
 .spot {
-  color: red;
   display: grid;
   grid-template-columns: 2.5fr 2fr 1fr;
   width: 500px;
