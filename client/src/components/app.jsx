@@ -1,5 +1,5 @@
 import React from 'react';
-import BookingList from './shared/bookingList/bookingList.jsx';
+import ParkingSpot from './shared/parkingSpot/parkingSpot.jsx';
 import './app.css';
 
 class App extends React.Component {
@@ -12,7 +12,7 @@ class App extends React.Component {
     return (
       <div>
         HELLO GALILEO
-        <BookingList />
+        <ParkingSpot />
       </div>
     )
   };

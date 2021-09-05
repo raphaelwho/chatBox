@@ -1,0 +1,35 @@
+.spot {
+  color: red;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  width: 750px;
+  height: 250px;
+  border: 1px solid red;
+}
+
+.spot-photo {
+  justify-self: stretch;
+  margin: 10px;
+  border: 1px solid blue;
+  border-radius: 5%;
+}
+
+.spot-info {
+  align-self: center;
+  margin: 10px;
+  border: 1px solid blue;
+}
+
+.spot-arrow {
+  align-self: center;
+  margin: 10px;
+  border: 1px solid blue;
+}
+
+.spot-info p {
+  margin: 0;
+}
+
+.spot-info .rate {
+  font-size: 12px;
+}
