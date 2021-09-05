@@ -1,35 +1,48 @@
 .spot {
   color: red;
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
-  width: 750px;
-  height: 250px;
-  border: 1px solid red;
+  grid-template-columns: 2.5fr 2fr 1fr;
+  width: 500px;
+  height: 200px;
+  border-radius: 2%;
+  box-shadow: 0 4px 10px 0 #707070;
+  margin-top: 10px;
 }
 
 .spot-photo {
   justify-self: stretch;
   margin: 10px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   border-radius: 5%;
+  height: 180px;
 }
 
 .spot-info {
   align-self: center;
   margin: 10px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
+  color: #707070;
 }
 
 .spot-arrow {
+  justify-self: start;
   align-self: center;
   margin: 10px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .spot-info p {
-  margin: 0;
+  margin: 2px;
 }
 
 .spot-info .rate {
   font-size: 12px;
+  font-weight: bold;
+}
+
+.spot-photo img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  background-size: cover;
 }
