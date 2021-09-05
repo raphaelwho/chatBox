@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChevronRight = ({ size=24, color="#000000", onIconClick }) => (
+const ChevronRight = ({ size=60, color="#707070", onIconClick }) => (
   <svg
     className={`right-arrow`}
     onClick={onIconClick}

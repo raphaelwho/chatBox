@@ -1,5 +1,5 @@
 import React from "react";
-const Trash = ({ size=24, color="#000000", onIconClick }) => (
+const Trash = ({ size=60, color="#707070", onIconClick }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
