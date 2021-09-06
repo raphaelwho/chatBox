@@ -1,8 +1,8 @@
 import React from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import Geocode from "react-geocode";
-import GOOGLE_MAP_API from '../../../../googleAPI.js';
-Geocode.setApiKey(GOOGLE_MAP_API);
+
+Geocode.setApiKey(process.env.GOOGLE_API);
 
 const containerStyle = {
   width: '400px',
@@ -82,7 +82,7 @@ class MapContainer extends React.Component {
   render() {
     return (
       <LoadScript
-        googleMapsApiKey={GOOGLE_MAP_API}
+        googleMapsApiKey={process.env.GOOGLE_API}
       >
         <GoogleMap
           mapContainerStyle={containerStyle}
