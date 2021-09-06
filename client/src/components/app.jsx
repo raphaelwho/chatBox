@@ -3,6 +3,7 @@ import ParkingSpot from './shared/parkingSpot/parkingSpot.jsx';
 import ChevronRight from './shared/icons/chevronRight.jsx';
 import Trash from './shared/icons/trash.jsx';
 import './app.css';
+import MapContainer from './booking/map.jsx';
 
 class App extends React.Component {
   constructor (props) {
@@ -18,6 +19,7 @@ class App extends React.Component {
     return (
       <div>
         HELLO GALILEO
+        <MapContainer />
         <ParkingSpot
           image='https://i.guim.co.uk/img/media/c70fe24fdbd8fa46f6a2c8dbdad64e794a543376/0_180_2700_1620/master/2700.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8a3c4c73bfd00329c27afab1ba7f05e3'
           rate='$2/hr'
