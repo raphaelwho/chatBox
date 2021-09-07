@@ -8,11 +8,15 @@ const mapStyles = {
 };
 
 class MapContainer extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <Map
         google={this.props.google}
-        zoom={13}
+        zoom={12}
         style={mapStyles}
         initialCenter={
           {
@@ -21,12 +25,9 @@ class MapContainer extends React.Component {
           }
         }
       >
-        <Marker
-          position={{
-            lat: 30.191450819000465,
-            lng: -97.77308111999969
-          }}
-        />
+        {this.props.spots.map((spot) => {
+          return <Marker key={spot.id} position={{lat: spot.geometry.coordinates[1], lng: spot.geometry.coordinates[0]}}/>
+        })}
       </Map>
     );
   }

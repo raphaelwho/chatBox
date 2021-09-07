@@ -6,7 +6,20 @@ import Map from './Map.jsx';
 class App extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {};
+    this.state = {
+      spots: []
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/spots?lat=30.191450819000465&lng=-97.77308111999969')
+      .then(response => response.json())
+      .then(data => {
+        const spots = data.rows[0].jsonb_build_object.features;
+        this.setState({
+          spots: spots
+        })
+      });
   }
 
   render () {
@@ -14,7 +27,7 @@ class App extends React.Component {
       <div>
         HELLO GALILEO
         <BookingList />
-        <Map />
+        <Map spots={this.state.spots}/>
       </div>
     )
   };
