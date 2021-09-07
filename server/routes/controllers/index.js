@@ -25,7 +25,7 @@ module.exports = {
                       ST_Distance(
                           ST_GEOGFromWKB(wkb_geometry),
                           -- Los Angeles (LAX)
-                          ST_GEOGFromWKB(st_makepoint(${lat}, ${lng}))
+                          ST_GEOGFromWKB(st_makepoint(${lng}, ${lat}))
                       ) as distance
                   from spots
                   order by distance

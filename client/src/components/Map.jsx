@@ -16,8 +16,8 @@ export class MapContainer extends React.Component {
         style={mapStyles}
         initialCenter={
           {
-            lat: -1.2884,
-            lng: 36.8233
+            lat: 30.191450819000465,
+            lng: -97.77308111999969
           }
         }
       />
