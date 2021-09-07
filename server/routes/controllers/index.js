@@ -1,8 +1,8 @@
-const { client } = require('../../../db');
+const db = require('../../../db').client;
 
 module.exports = {
   findSpots: (req, res) => {
-      const { lat, long } = req.query;
+      const { lat, lng } = req.query;
       const query = `SELECT jsonb_build_object(
         'type',
         'FeatureCollection',
@@ -25,7 +25,7 @@ module.exports = {
                       ST_Distance(
                           ST_GEOGFromWKB(wkb_geometry),
                           -- Los Angeles (LAX)
-                          ST_GEOGFromWKB(st_makepoint(${lat}, ${long}))
+                          ST_GEOGFromWKB(st_makepoint(${lat}, ${lng}))
                       ) as distance
                   from spots
                   order by distance
@@ -34,7 +34,7 @@ module.exports = {
           where distance < 16090
       ) features`
 
-      client.query(query)
+      db.query(query)
         .then((results) => {
           res.status(200).send(results);
         })
