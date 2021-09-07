@@ -27,7 +27,7 @@ module.exports = {
                           -- Los Angeles (LAX)
                           ST_GEOGFromWKB(st_makepoint(${lat}, ${long}))
                       ) as distance
-                  from austinrecycling
+                  from spots
                   order by distance
                   limit 25
               ) row

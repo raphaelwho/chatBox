@@ -6,7 +6,7 @@ let password;
 let host;
 
 if (process.env.NODE_ENV === 'development') {
-  database = 'recycling'; // changed to recycling for experimentation purposes
+  database = 'galileo'; // changed to 'galileo' for experimentation purposes
   user = process.env.PG_DB_USER_DEV;
   password = process.env.PG_DB_PASS_DEV;
   host = 'localhost';
