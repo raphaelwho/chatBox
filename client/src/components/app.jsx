@@ -1,6 +1,7 @@
 import React from 'react';
 import BookingList from './shared/bookingList/bookingList.jsx';
 import './app.css';
+import Map from './Map.jsx';
 
 class App extends React.Component {
   constructor (props) {
@@ -13,6 +14,7 @@ class App extends React.Component {
       <div>
         HELLO GALILEO
         <BookingList />
+        <Map />
       </div>
     )
   };

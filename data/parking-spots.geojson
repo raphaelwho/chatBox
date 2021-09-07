@@ -15,7 +15,31 @@
       "type":"Feature",
       "geometry":{
         "type":"Point",
-        "coordinates":[-97.77308111999969,30.0000000000]
+        "coordinates":[-97.68754760699966,30.30758150200046]
+      },
+        "properties":{
+          "name":"test spot 2",
+          "city":"Austin",
+          "type":"driveway"
+      }
+    },
+    {
+      "type":"Feature",
+      "geometry":{
+        "type":"Point",
+        "coordinates":[-97.7296820039997,30.35552629600045]
+      },
+        "properties":{
+          "name":"test spot 2",
+          "city":"Austin",
+          "type":"driveway"
+      }
+    },
+    {
+      "type":"Feature",
+      "geometry":{
+        "type":"Point",
+        "coordinates":[-97.71022065999966,30.26032043200047]
       },
         "properties":{
           "name":"test spot 2",
