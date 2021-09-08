@@ -1,5 +1,6 @@
 import React from 'react';
 import BookingList from './shared/bookingList/bookingList.jsx';
+import Registration from './shared/profile/Registration.jsx';
 import './app.css';
 
 class App extends React.Component {
@@ -13,6 +14,7 @@ class App extends React.Component {
       <div>
         HELLO GALILEO
         <BookingList />
+        <Registration />
       </div>
     )
   };
