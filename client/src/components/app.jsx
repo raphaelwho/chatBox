@@ -8,7 +8,21 @@ import MapContainer from './booking/map.jsx';
 class App extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {};
+    this.state = {
+      locations: []
+    };
+  }
+
+  componentDidMount () {
+    fetch(`/spots`)
+      .then((resp) => resp.json())
+      .then((spots) => {
+        console.log('SPOTS', spots);
+        this.setState({locations: spots})
+      })
+      .catch((err) => {
+        console.log('ERROR GETTING SPOTS', err);
+      })
   }
 
   onIconClick = () => {
@@ -19,7 +33,7 @@ class App extends React.Component {
     return (
       <div>
         HELLO GALILEO
-        <MapContainer />
+        <MapContainer locations={this.state.locations}/>
         <ParkingSpot
           image='https://i.guim.co.uk/img/media/c70fe24fdbd8fa46f6a2c8dbdad64e794a543376/0_180_2700_1620/master/2700.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8a3c4c73bfd00329c27afab1ba7f05e3'
           rate='$2/hr'
