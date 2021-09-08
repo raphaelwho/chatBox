@@ -1,5 +1,6 @@
 import React from 'react';
 import BookingList from './shared/bookingList/bookingList.jsx';
+import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import './app.css';
 
 class App extends React.Component {
@@ -11,6 +12,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
+        <PageHeader title={'Spot Management'} />
         HELLO GALILEO
         <BookingList />
       </div>
