@@ -1,7 +1,6 @@
 import React from 'react';
 import BookingList from './shared/bookingList/bookingList.jsx';
 import Registration from './shared/profile/Registration.jsx';
-=======
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import './app.css';
 
