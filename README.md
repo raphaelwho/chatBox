@@ -4,7 +4,8 @@
 2. PG_DB_USER_DEV="<YOUR_USERNAME>"
 3. PG_DB_PASS_DEV="<YOUR_PASSWORD>"
 4. PG_DB_PASS_TEST="<CIRCLECI_DB_PASSWORD>"
-5. GOOGLE_API="YOUR_API_KEY>"
+5. GOOGLE_API="YOUR_API_KEY>"   
+To get a Google Map API, please check out this link: https://developers.google.com/maps/gmp-get-started#create-project
 
 ## To intialize the db
 1. Install PostGIS using homebrew (preferred). https://postgis.net/install/    
