@@ -1,13 +1,34 @@
 import React from 'react';
-import BookingList from './shared/bookingList/bookingList.jsx';
+import ParkingSpot from './shared/parkingSpot/parkingSpot.jsx';
+import ChevronRight from './shared/icons/chevronRight.jsx';
+import Trash from './shared/icons/trash.jsx';
 import Registration from './shared/profile/Registration.jsx';
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import './app.css';
+import MapContainer from './booking/map.jsx';
 
 class App extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {};
+    this.state = {
+      locations: []
+    };
+  }
+
+  componentDidMount () {
+    fetch(`/spots`)
+      .then((resp) => resp.json())
+      .then((spots) => {
+        console.log('SPOTS', spots);
+        this.setState({locations: spots})
+      })
+      .catch((err) => {
+        console.log('ERROR GETTING SPOTS', err);
+      })
+  }
+
+  onIconClick = () => {
+    console.log('HELLO')
   }
 
   render () {
@@ -15,7 +36,7 @@ class App extends React.Component {
       <div>
         <PageHeader title={'Spot Management'} />
         HELLO GALILEO
-        <BookingList />
+        <MapContainer locations={this.state.locations}/>
         <Registration />
       </div>
     )
