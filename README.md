@@ -6,6 +6,11 @@
 4. PG_DB_PASS_TEST="<CIRCLECI_DB_PASSWORD>"
 5. GOOGLE_API="YOUR_API_KEY>"
 
+## To intialize the db
+1. Install PostGIS using homebrew (preferred). https://postgis.net/install/    
+2. Create a db called 'galileo'.  
+3. Run 'psql galileo < schema.sql' in the terminal.  
+
 ## To initialize the project:
 1. npm install
 2. npm run react-dev

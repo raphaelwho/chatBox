@@ -1,0 +1,24 @@
+
+.txtBox {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  align-items: flex-start;
+}
+
+.txtBoxContainer {
+  margin: 70px 0 60px 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.txtBoxInput {
+  padding: 22px 20px;
+  margin: 5px 0 20px 0;
+  border: 3px solid #cdc4f2;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: medium;
+}
