@@ -1,5 +1,6 @@
 import React from 'react';
 import BookingList from './shared/bookingList/bookingList.jsx';
+import Picker from './shared/Picker.jsx';
 import './app.css';
 
 class App extends React.Component {
