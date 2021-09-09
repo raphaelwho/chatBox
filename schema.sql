@@ -2,7 +2,7 @@
 CREATE EXTENSION postgis;
 
 CREATE TABLE users (
-  user_id integer PRIMARY KEY,
+  user_id SERIAL PRIMARY KEY,
   username varchar(50) UNIQUE,
   password varchar(50),
   first_name varchar(50),
@@ -23,7 +23,7 @@ CREATE TABLE spots (
 );
 
 CREATE TABLE bookings (
-  booking_id integer PRIMARY KEY,
+  booking_id SERIAL PRIMARY KEY,
   spot_id integer,
   renter_id integer,
   start_time bigint,
