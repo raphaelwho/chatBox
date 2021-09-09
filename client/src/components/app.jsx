@@ -7,7 +7,7 @@ import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import TxtBox from './shared/txtBox/TxtBox.jsx';
 import './app.css';
 import MapContainer from './booking/map.jsx';
-import Login from './Login/Login.jsx'
+// import Login from './Login/Login.jsx'
 
 class App extends React.Component {
   constructor (props) {
