@@ -1,5 +1,6 @@
 import React from 'react';
 import BookingList from './shared/bookingList/bookingList.jsx';
+import Registration from './shared/profile/Registration.jsx';
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import './app.css';
 
@@ -15,6 +16,7 @@ class App extends React.Component {
         <PageHeader title={'Spot Management'} />
         HELLO GALILEO
         <BookingList />
+        <Registration />
       </div>
     )
   };

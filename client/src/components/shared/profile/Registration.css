@@ -1,0 +1,64 @@
+body {
+  font-family: sans-serif;
+  margin: 10px 30px 10px 30px;
+}
+
+.registration {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  align-items: flex-start;
+}
+
+.backtoLogin {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.backBtn {
+  color: #cdc4f2;
+  font-size: xx-large;
+  font-weight: bolder;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.backWord {
+  padding-top: 15px;
+  padding-left: 10px;
+}
+
+.registrationContainer {
+  margin: 70px 0 60px 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.registrationInput {
+  padding: 22px 20px;
+  margin: 5px 0 20px 0;
+  border: 3px solid #cdc4f2;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: medium;
+}
+
+.registrationBtn {
+  background-color: #cdc4f2;
+  color: white;
+  margin: auto;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+  height: 80px;
+  border-radius: 15px;
+  font-size: x-large;
+  font-weight: 800;
+}
+
+button:hover {
+  opacity: 0.8;
+}
