@@ -10,6 +10,8 @@ const db = require('../db/index.js');
 const servingPath = path.join(__dirname, '..', 'client', 'dist');
 app.use(express.static(servingPath));
 
+app.use(bodyParser.json());
+
 app.use('/', router)
 
 module.exports.app = app;

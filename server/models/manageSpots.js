@@ -38,7 +38,8 @@ const getInfo = (spotId) => {
 }
 
 const updateInfo = (options) => {
-  let query = `UPDATE spots SET photo_url=${options.photo}, type=${options.type}, price=${options.price} WHERE spot_id = ${options.spotId}`;
+  console.log('options', options);
+  let query = `UPDATE spots SET photo_url='${options.photo}', type='${options.type}', price='${options.price}' WHERE spot_id = ${options.spotId}`;
   return db.query(query)
     .then((results) => {
       console.log('updating host spotinfo - models', results)
