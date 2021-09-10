@@ -78,7 +78,7 @@ class Registration extends React.Component {
           <label>Password</label>
           <input required type="text" id="password" className="registrationInput" value ={this.state.password} onChange={this.handleChange.bind(this)}></input>
           <label>Email</label>
-          <input requiredtype="text" id="email" className="registrationInput" value ={this.state.email} onChange={this.handleChange.bind(this)}></input>
+          <input required type="email" id="email" className="registrationInput" value ={this.state.email} onChange={this.handleChange.bind(this)}></input>
           <label>First Name</label>
           <input required type="text" id="firstName" className="registrationInput" value ={this.state.firstName} onChange={this.handleChange.bind(this)}></input>
           <label>Last Name</label>
