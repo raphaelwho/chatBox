@@ -1,12 +1,12 @@
-const db = require('../../db/index.js');
+const db = require('../../db/index.js').client;
 // For Host - Spot Management
 
 const getSpots = (userId) => {
   let query = `SELECT spot_id, address, price, photo_url FROM spots WHERE host_id = ${userId}`;
   return db.query(query)
     .then((results) => {
-      console.log('getting host myspots - models', results)
-      return results;
+      console.log('getting host myspots - models', results.rows)
+      return results.rows;
     })
     .catch((err) => {
       console.log('error getting myspots - models', err);
@@ -48,3 +48,10 @@ const updateInfo = (options) => {
       console.log('error updating spotinfo - models', err);
     })
 }
+
+module.exports = {
+  getSpots,
+  addSpot,
+  getInfo,
+  updateInfo
+};
