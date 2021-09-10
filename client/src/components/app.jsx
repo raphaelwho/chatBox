@@ -6,8 +6,8 @@ import Registration from './shared/profile/Registration.jsx';
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import TxtBox from './shared/txtBox/TxtBox.jsx';
 import './app.css';
-// import MapView from './mapview/MapView.jsx';
-// import Login from './Login/Login.jsx'
+import MapView from './mapview/MapView.jsx';
+import Login from './Login/Login.jsx'
 
 class App extends React.Component {
   constructor (props) {
@@ -35,8 +35,9 @@ class App extends React.Component {
 
   render () {
     return (
-        // <MapView />
+
       <div>
+        <MapView />
         <PageHeader title={'Spot Management'} />
         HELLO GALILEO
         <Registration />
