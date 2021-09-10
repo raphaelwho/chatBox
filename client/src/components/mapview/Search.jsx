@@ -17,17 +17,15 @@ class Search extends React.Component {
     const address = e.target.value;
     this.setState({
       address: address
-    }, () => console.log(this.state.address));
+    });
   }
 
-  handleSearch(reCenterMap) {
-    console.log('search button clicked');
+  handleSearch() {
     Geocode.fromAddress(this.state.address)
     .then((response) => {
       const { lat, lng } = response.results[0].geometry.location;
-      console.log('Matts\'s house:', lat, lng);
-      // recenter the map
-      reCenterMap({
+      // console.log('Matts\'s house:', lat, lng);
+      this.props.reCenterMap({
         lat: lat,
         lng: lng
       });
@@ -41,7 +39,7 @@ class Search extends React.Component {
     return (
       <div>
         <TxtBox label={'search'} handleInput={this.handleAddressInput}/>
-        <button onClick={() => this.handleSearch(this.props.reCenterMap)}> FIND PARKING </button>
+        <button onClick={this.handleSearch}> FIND PARKING </button>
       </div>
     );
   }
