@@ -6,7 +6,7 @@ import Registration from './shared/profile/Registration.jsx';
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import TxtBox from './shared/txtBox/TxtBox.jsx';
 import './app.css';
-import MapView from './mapview/MapView.jsx';
+// import MapView from './mapview/MapView.jsx';
 // import Login from './Login/Login.jsx'
 
 class App extends React.Component {
@@ -35,14 +35,13 @@ class App extends React.Component {
 
   render () {
     return (
-        <MapView />
-      // <div>
-      //   <PageHeader title={'Spot Management'} />
-      //   HELLO GALILEO
-      //   <MapContainer locations={this.state.locations}/>
-      //   <Registration />
-      //   <TxtBox label={'yourLabel'} />
-      // </div>
+        // <MapView />
+      <div>
+        <PageHeader title={'Spot Management'} />
+        HELLO GALILEO
+        <Registration />
+        <TxtBox label={'yourLabel'} />
+      </div>
     )
   };
 }
