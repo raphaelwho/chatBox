@@ -1,18 +1,18 @@
 const model = require('../../models/manageSpots.js')
 
-const getMySpots = () => {
+const getMySpots = (req, res) => {
 
 }
 
-const addNewSpot = () => {
+const addNewSpot = (req, res) => {
 
 }
 
-const getSpotDetails = () => {
+const getSpotDetails = (req, res) => {
 
 }
 
-const updateSpotDetails = () => {
+const updateSpotDetails = (req, res) => {
 
 }
 
