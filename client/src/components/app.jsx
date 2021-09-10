@@ -2,7 +2,7 @@ import React from 'react';
 import ParkingSpot from './shared/parkingSpot/parkingSpot.jsx';
 import ChevronRight from './shared/icons/chevronRight.jsx';
 import Trash from './shared/icons/trash.jsx';
-import Registration from './shared/profile/Registration.jsx';
+import Profile from './shared/profile/Profile.jsx';
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import TxtBox from './shared/txtBox/TxtBox.jsx';
 import './app.css';
@@ -38,7 +38,8 @@ class App extends React.Component {
         <PageHeader title={'Spot Management'} />
         HELLO GALILEO
         <MapContainer locations={this.state.locations}/>
-        <Registration />
+        <Profile type={'registration'} />
+        <Profile type={'update'} />
         <TxtBox label={'yourLabel'} />
       </div>
     )
