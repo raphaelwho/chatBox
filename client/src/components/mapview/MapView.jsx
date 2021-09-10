@@ -14,7 +14,14 @@ class MapView extends React.Component{
       spots: fakeSpots,
       showSpotInfoModal: false
     };
+    this.reCenterMap = this.reCenterMap.bind(this);
     this.getFreeSpots = this.getFreeSpots.bind(this);
+  }
+
+  reCenterMap(newCenter) {
+    this.setState({
+      center: newCenter
+    });
   }
 
   getFreeSpots() {
@@ -24,8 +31,8 @@ class MapView extends React.Component{
   render() {
     return (
       <div>
-        <Map center={this.state.center} spots={this.state.spots} />
-        <Search />
+        <Map center={this.state.center} spots={this.state.spots}/>
+        <Search reCenterMap={this.reCenterMap}/>
       </div>
     );
   }

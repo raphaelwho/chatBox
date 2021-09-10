@@ -2,8 +2,6 @@ import React from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import Geocode from "react-geocode";
 
-Geocode.setApiKey(process.env.GOOGLE_API);
-
 const containerStyle = {
   width: '900px',
   height: '80vh'
@@ -25,17 +23,6 @@ class MapContainer extends React.Component {
 
   onClose = () => {
     this.setState({selected: {}})
-  }
-
-  componentDidMount () {
-    Geocode.fromAddress("730 Morro Ave Morro Bay California")
-      .then((response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        console.log(lat, lng);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
   }
 
   render() {
