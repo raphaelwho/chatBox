@@ -9,47 +9,10 @@ const containerStyle = {
   height: '400px'
 };
 
-const center = {
-  lat: 41.3851,
-  lng: 2.1734
-};
-// const locations = [
-//   {
-//     name: "Location 1",
-//     location: {
-//       lat: 41.3954,
-//       lng: 2.162
-//     },
-//   },
-//   {
-//     name: "Location 2",
-//     location: {
-//       lat: 41.3917,
-//       lng: 2.1649
-//     },
-//   },
-//   {
-//     name: "Location 3",
-//     location: {
-//       lat: 41.3773,
-//       lng: 2.1585
-//     },
-//   },
-//   {
-//     name: "Location 4",
-//     location: {
-//       lat: 41.3797,
-//       lng: 2.1682
-//     },
-//   },
-//   {
-//     name: "Location 5",
-//     location: {
-//       lat: 41.4055,
-//       lng: 2.1915
-//     },
-//   }
-// ];
+// const center = {
+//   lat: 41.3851,
+//   lng: 2.1734
+// };
 
 class MapContainer extends React.Component {
   constructor(props) {
@@ -87,12 +50,12 @@ class MapContainer extends React.Component {
       >
         <GoogleMap
           mapContainerStyle={containerStyle}
-          center={center}
+          center={this.props.center}
           zoom={10}
         >
           { /* Child components, such as markers, info windows, etc. */ }
           {
-            this.props.locations.map(item => {
+            this.props.spots.map(item => {
               return (
               <Marker key={item.spot_id} position={item.location} onClick={() => this.onClick(item)}/>
               )
@@ -119,3 +82,40 @@ class MapContainer extends React.Component {
 
 export default MapContainer;
 
+// const locations = [
+//   {
+//     name: "Location 1",
+//     location: {
+//       lat: 41.3954,
+//       lng: 2.162
+//     },
+//   },
+//   {
+//     name: "Location 2",
+//     location: {
+//       lat: 41.3917,
+//       lng: 2.1649
+//     },
+//   },
+//   {
+//     name: "Location 3",
+//     location: {
+//       lat: 41.3773,
+//       lng: 2.1585
+//     },
+//   },
+//   {
+//     name: "Location 4",
+//     location: {
+//       lat: 41.3797,
+//       lng: 2.1682
+//     },
+//   },
+//   {
+//     name: "Location 5",
+//     location: {
+//       lat: 41.4055,
+//       lng: 2.1915
+//     },
+//   }
+// ];
