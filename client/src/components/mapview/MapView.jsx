@@ -1,5 +1,6 @@
 import React from 'react';
-import Map from './map.jsx';
+import Map from './Map.jsx';
+import Search from './Search.jsx';
 import fakeSpots from './fakeSpots.js';
 
 class MapView extends React.Component{
@@ -22,7 +23,10 @@ class MapView extends React.Component{
 
   render() {
     return (
-      <Map center={this.state.center} spots={this.state.spots} />
+      <div>
+        <Map center={this.state.center} spots={this.state.spots} />
+        <Search />
+      </div>
     );
   }
 
