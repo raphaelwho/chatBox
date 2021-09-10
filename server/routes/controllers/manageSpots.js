@@ -1,7 +1,7 @@
 const model = require('../../models/manageSpots.js')
 
 const getMySpots = (req, res) => {
- // req.query.id
+ // req.query.id = hostid
  model.getSpots(req.query.id)
    .then((spots) => {
      console.log('getting spots back to controller', spots);
@@ -17,7 +17,7 @@ const addNewSpot = (req, res) => {
 }
 
 const getSpotDetails = (req, res) => {
-  // req.query.id
+  // req.query.id = spotid
   model.getInfo(req.query.id)
    .then((info) => {
      console.log('getting spots back to controller', info);
@@ -30,6 +30,7 @@ const getSpotDetails = (req, res) => {
 
 const updateSpotDetails = (req, res) => {
   // req.body
+
 }
 
 module.exports = {
