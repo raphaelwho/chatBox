@@ -6,16 +6,16 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: ''
+      address: ''
     };
-    this.handleQueryInput = this.handleQueryInput.bind(this);
+    this.handleAddressInput = this.handleAddressInput.bind(this);
   }
 
-  handleQueryInput(e) {
-    const query = e.target.value;
+  handleAddressInput(e) {
+    const address = e.target.value;
     this.setState({
-      query: query
-    }, () => console.log(this.state.query));
+      address: address
+    }, () => console.log(this.state.address));
   }
 
   handleSearch() {
@@ -25,7 +25,7 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-        <TxtBox label={'search'} handleInput={this.handleQueryInput}/>
+        <TxtBox label={'search'} handleInput={this.handleAddressInput}/>
       </div>
     );
   }
