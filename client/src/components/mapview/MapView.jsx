@@ -1,5 +1,6 @@
 import React from 'react';
 import Map from './map.jsx';
+import fakeSpots from './fakeSpots.js';
 
 class MapView extends React.Component{
   constructor(props) {
@@ -9,7 +10,7 @@ class MapView extends React.Component{
         lat: 41.3851,
         lng: 2.1734
       },
-      spots: [],
+      spots: fakeSpots,
       showSpotInfoModal: false
     };
     this.getFreeSpots = this.getFreeSpots.bind(this);
@@ -22,7 +23,6 @@ class MapView extends React.Component{
   render() {
     return (
       <Map center={this.state.center} spots={this.state.spots} />
-
     );
   }
 

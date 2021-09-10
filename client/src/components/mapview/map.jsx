@@ -5,14 +5,9 @@ import Geocode from "react-geocode";
 Geocode.setApiKey(process.env.GOOGLE_API);
 
 const containerStyle = {
-  width: '400px',
-  height: '400px'
+  width: '900px',
+  height: '80vh'
 };
-
-// const center = {
-//   lat: 41.3851,
-//   lng: 2.1734
-// };
 
 class MapContainer extends React.Component {
   constructor(props) {
@@ -51,7 +46,7 @@ class MapContainer extends React.Component {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={this.props.center}
-          zoom={10}
+          zoom={14}
         >
           { /* Child components, such as markers, info windows, etc. */ }
           {
@@ -81,6 +76,11 @@ class MapContainer extends React.Component {
 }
 
 export default MapContainer;
+
+// const center = {
+//   lat: 41.3851,
+//   lng: 2.1734
+// };
 
 // const locations = [
 //   {
