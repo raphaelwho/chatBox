@@ -1,5 +1,6 @@
 import React from 'react';
 import TxtBox from '../shared/txtBox/TxtBox.jsx';
+import Button from '../shared/button/button.jsx';
 
 class Registration extends React.Component {
   constructor(props) {
@@ -40,7 +41,8 @@ class Registration extends React.Component {
           <TxtBox label={"First Name"} onChange={this.handleChange.bind(this)}></TxtBox>
           <TxtBox label={"Last Name"} onChange={this.handleChange.bind(this)}></TxtBox>
         </div>
-        <button className="registrationBtn" onClick={this.register.bind(this)}>Finish Registration</button>
+        <Button text="Finish Registration" onClick={this.register.bind(this)}></Button>
+
       </div>
     )
   }
