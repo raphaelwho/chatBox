@@ -1,5 +1,5 @@
 import React from 'react';
-import Registration from './profile/Registration.jsx';
+import Profile from './profile/Profile.jsx';
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import './app.css';
 import MapView from './mapview/MapView.jsx';
@@ -35,8 +35,9 @@ class App extends React.Component {
       <div>
         <PageHeader title={'Spot Management'} isVisible={true} />
         <MapView />
-        <Registration />
         <BottomModal isModalOpen={true} isSubmodalOpen={true} />
+        <Profile type={'registration'} />
+        <Profile type={'update'} />
       </div>
     )
   };
