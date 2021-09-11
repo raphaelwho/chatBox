@@ -2,7 +2,7 @@ const client = require('../../db/index.js').client;
 
 exports.getProfile = async (user_id) => {
   try {
-    let query = `SELECT user_id,username,password,first_name,last_name ,email FROM users WHERE user_id = ${user_id}`;
+    let query = `SELECT user_id,username,password,first_name,last_name ,email FROM users WHERE user_id = '${user_id}'`;
     let ans = await client.query(query);
     return ans.rows[0];
   } catch (error) {

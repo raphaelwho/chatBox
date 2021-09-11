@@ -2,6 +2,8 @@
 import React from 'react';
 import style from './Registration.css'
 import Button from '../shared/button/button.jsx';
+import Login from '../login/Login.jsx';
+import $ from 'jquery';
 
 class Registration extends React.Component {
   constructor(props) {
@@ -12,7 +14,8 @@ class Registration extends React.Component {
       password: '',
       email: '',
       firstName: '',
-      lastName: ''
+      lastName: '',
+      back:false
     }
   }
 
@@ -38,6 +41,7 @@ class Registration extends React.Component {
 
   backtoLogin(){
     console.log('backtoLogin');
+    this.setState({back:true})
   }
 
   submit() {
@@ -85,15 +89,18 @@ class Registration extends React.Component {
 
   render() {
     console.log(this.props)
+    if (this.state.back)
+      {return (
+        <Login />
+      )}
 
     return (
       <div className="registration">
         {/* <div className="backtoLogin"><span className="backBtn">{'\u1438'}</span> <span> Back to Login</span></div> */}
         { this.showBacktoLogin() }
-        <form onSubmit = {this.submit.bind(this)}>
         <div className="registrationContainer">
           <label>Username</label>
-          <input type="text" id="username" className="registrationInput" value ={this.state.username} onChange={this.handleChange.bind(this)} required ></input>
+          <input required type="text" id="username" className="registrationInput" value ={this.state.username} onChange={this.handleChange.bind(this)}></input>
           <label>Password</label>
           <input required type="text" id="password" className="registrationInput" value ={this.state.password} onChange={this.handleChange.bind(this)}></input>
           <label>Email</label>
@@ -101,10 +108,9 @@ class Registration extends React.Component {
           <label>First Name</label>
           <input required type="text" id="firstName" className="registrationInput" value ={this.state.firstName} onChange={this.handleChange.bind(this)}></input>
           <label>Last Name</label>
-          <input type="text" id="lastName" className="registrationInput" value ={this.state.lastName} onChange={this.handleChange.bind(this)} ></input>
-          <input type="submit" className="registrationBtn" value={this.props.btn}/>
+          <input required type="text" id="lastName" className="registrationInput" value ={this.state.lastName} onChange={this.handleChange.bind(this)}></input>
         </div>
-        </form>
+        <button className="registrationBtn" onClick={this.submit.bind(this)}>{this.props.btn}</button>
       </div>
     )
   }

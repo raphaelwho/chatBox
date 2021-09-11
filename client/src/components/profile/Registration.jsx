@@ -2,7 +2,7 @@
 import React from 'react';
 import style from './Registration.css'
 import Button from '../shared/button/button.jsx';
-import $ from 'jquery';
+import Login from '../login/Login.jsx';
 
 class Registration extends React.Component {
   constructor(props) {
@@ -13,7 +13,8 @@ class Registration extends React.Component {
       password: '',
       email: '',
       firstName: '',
-      lastName: ''
+      lastName: '',
+      back:false
     }
   }
 
@@ -39,10 +40,11 @@ class Registration extends React.Component {
 
   backtoLogin(){
     console.log('backtoLogin');
+    this.setState({back:true})
   }
 
-  submit() {
-    // event.preventdefault();
+  submit(event) {
+    event.preventDefault();
     // var data = this.state;
     // console.log('new',data)
 
@@ -59,17 +61,17 @@ class Registration extends React.Component {
     // })
 
     // to Comment out below
-    if (this.props.btn === 'Finish Registration') {
-      console.log('RegisterUser State: ', this.state);
-      this.props.handleUser(this.state);
-    }
-    if (this.props.btn === 'Save Information') {
-      console.log('UpdateUser State: ', this.state);
-      // this.props.updateUser(this.state);
-    }
+    // if (this.props.btn === 'Finish Registration') {
+    //   console.log('RegisterUser State: ', this.state);
+    //   this.props.handleUser(this.state);
+    // }
+    // if (this.props.btn === 'Save Information') {
+    //   console.log('UpdateUser State: ', this.state);
+    //   // this.props.updateUser(this.state);
+    // }
     // to Comment out above
 
-    // this.props.handleUser(this.state);
+    this.props.handleUser(this.state);
 
   }
 
@@ -86,14 +88,19 @@ class Registration extends React.Component {
 
   render() {
     console.log(this.props)
+    if (this.state.back)
+      {return (
+        <Login />
+      )}
 
     return (
       <div className="registration">
         {/* <div className="backtoLogin"><span className="backBtn">{'\u1438'}</span> <span> Back to Login</span></div> */}
         { this.showBacktoLogin() }
-        <div className="registrationContainer">
+        <form onSubmit = {this.submit.bind(this)} className="registrationContainer">
+        {/* <div className="registrationContainer"> */}
           <label>Username</label>
-          <input required type="text" id="username" className="registrationInput" value ={this.state.username} onChange={this.handleChange.bind(this)}></input>
+          <input type="text" id="username" className="registrationInput" value ={this.state.username} onChange={this.handleChange.bind(this)} required ></input>
           <label>Password</label>
           <input required type="text" id="password" className="registrationInput" value ={this.state.password} onChange={this.handleChange.bind(this)}></input>
           <label>Email</label>
@@ -101,9 +108,10 @@ class Registration extends React.Component {
           <label>First Name</label>
           <input required type="text" id="firstName" className="registrationInput" value ={this.state.firstName} onChange={this.handleChange.bind(this)}></input>
           <label>Last Name</label>
-          <input required type="text" id="lastName" className="registrationInput" value ={this.state.lastName} onChange={this.handleChange.bind(this)}></input>
-        </div>
-        <button className="registrationBtn" onClick={this.submit.bind(this)}>{this.props.btn}</button>
+          <input type="text" id="lastName" className="registrationInput" value ={this.state.lastName} onChange={this.handleChange.bind(this)} ></input>
+          <input type="submit" className="registrationBtn" value={this.props.btn}/>
+        {/* </div> */}
+        </form>
       </div>
     )
   }

@@ -23,7 +23,7 @@ const InputForm = () => {
 export default class update extends Component {
 
   onFormSubmit(event) {
-    event.preventdefault();
+    event.preventDefault();
     var data = $('#input-form');
     console.log('new',data)
 
