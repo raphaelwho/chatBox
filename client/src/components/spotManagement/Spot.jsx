@@ -1,5 +1,6 @@
 import React from 'react';
 // import Right Chevron
+import './spotManagement.css';
 
 const Spot = (props) => (
 

@@ -1,0 +1,55 @@
+body {
+  font-family: sans-serif;
+  margin: 10px 30px 10px 30px;
+}
+
+.manage-spots-home {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  align-items: flex-start;
+}
+
+.add-spot-home {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.add-spot-form {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.add-spot-input {
+  padding: 22px 20px;
+  margin: 5px 0 20px 0;
+  border: 3px solid #cdc4f2;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: medium;
+}
+
+.add-spot-photo {
+  padding: 22px 20px;
+  margin: 5px 0 20px 0;
+  border: 3px solid #cdc4f2;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: medium;
+}
+
+.add-spot-select {
+  padding: 22px 20px;
+  margin: 5px 0 20px 0;
+  border: 3px solid #cdc4f2;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1.3em;
+}
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import Spot from './Spot.jsx';
+import './spotManagement.css';
 
 
 const SpotList = (props) => {

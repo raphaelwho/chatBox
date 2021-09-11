@@ -1,5 +1,7 @@
 import React from 'react';
-// import Button
+import Button from '../shared/button/button.jsx';
+import './spotManagement.css';
+// no page header
 
 class UpdateSpot extends React.Component {
   constructor(props) {
@@ -34,12 +36,12 @@ class UpdateSpot extends React.Component {
       <div className='add-spot-home'>
 
        {/* make into box show photo*/}
-       <div className='add-spot-photo'>
-        <label>Edit Photo</label>
-        <input type="text" id='photo' value={this.state.photo} className='add-spot-input' onChange={this.handleChange}></input>
-       </div>
 
        <div className='add-spot-form'>
+        <div className='add-spot-photo'>
+          <label>Edit Photo</label>
+          <input type="text" id='photo' value={this.state.photo} className='add-spot-input' onChange={this.handleChange}></input>
+        </div>
           {/* address maybe should be static */}
           <label>Address</label>
           <input type="text" id="address" value={this.state.address} className='add-spot-input' onChange={this.handleChange}></input>
@@ -54,9 +56,9 @@ class UpdateSpot extends React.Component {
             <option value='indoor'>Indoor</option>
             <option value='outdoor'>Outdoor</option>
           </select>
-        </div>
-       {/* <Button func={this.handleSaveClick} text={'Add Spot'}/>  */}
       </div>
+       <Button func={this.handleSaveClick} text={'Add Spot'}/>
+    </div>
     )
 
   }

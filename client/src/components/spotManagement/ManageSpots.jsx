@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import SpotList from './Spotlist.jsx';
-// import Button for adding spot
+import Button from '../shared/button/button.jsx';
+import './spotManagement.css';
+import PageHeader from '../shared/pageHeader/pageHeader.jsx';
 
 class ManageSpots extends React.Component {
   constructor(props) {
@@ -38,8 +40,11 @@ class ManageSpots extends React.Component {
 
     return (
       <div className='manage-spots-home'>
-        <SpotList spots={this.state.spots} handleSpotClick={this.handleSpotClick}/>
-        {/* <Button func={this.handleAddSpotClick} text={'Add Spot'}/>  */}
+        <PageHeader title={'Spot Management'} />
+        <div className='my-spots-container'>
+          <SpotList spots={this.state.spots} handleSpotClick={this.handleSpotClick}/>
+        </div>
+        <Button func={this.handleAddSpotClick} text={'Add Spot'}/>
       </div>
     )
 

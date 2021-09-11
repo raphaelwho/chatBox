@@ -1,5 +1,7 @@
 import React from 'react';
-// import Button
+import Button from '../shared/button/button.jsx';
+import './spotManagement.css';
+// no page header
 
 class AddSpot extends React.Component {
   constructor(props) {
