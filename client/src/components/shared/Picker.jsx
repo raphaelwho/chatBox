@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Picker({label, options, initialValue, onChangeCB = () => {}}) {
+export default function Picker({ label, options, initialValue, onChangeCB = () => { } }) {
   const [selectedOption, setSelectedOption] = useState(initialValue);
 
   function handleSelectChange(event) {
@@ -15,12 +15,12 @@ export default function Picker({label, options, initialValue, onChangeCB = () =>
     <div className="Picker">
       <label>{label}</label>
       <select value={selectedOption} onChange={handleSelectChange}
-      style = {{
-                backgroundColor:'white',
-                borderColor: "#CDC4F2",
-                borderWidth: '5px',
-                borderRadius: '4px'
-      }}>
+        style={{
+          backgroundColor: 'white',
+          borderColor: "#CDC4F2",
+          borderWidth: '3px',
+          borderRadius: '4px'
+        }}>
         {options.map((option, index) => <option key={index} value={option}>{option}</option>)}
       </select>
     </div>
