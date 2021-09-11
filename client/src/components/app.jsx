@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from './login/Login.jsx';
 import Profile from './profile/Profile.jsx';
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import './app.css';
@@ -39,6 +40,8 @@ class App extends React.Component {
         <MapView />
         <Profile type={'registration'} />
         <Profile type={'update'} />
+        <Login />
+        {/* <TxtBox label={'yourLabel'} /> */}
       </div>
     )
   };
