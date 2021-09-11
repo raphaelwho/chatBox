@@ -1,7 +1,7 @@
 import React from 'react';
-import style from './TxtBox.css'
+import './TxtBox.css';
 
-const TxtBox = ({label, handleInput}) => {
+const TxtBox = ({ label, handleInput }) => {
   return (
     <div className="txtBox">
       <div className="txtBoxContainer">
