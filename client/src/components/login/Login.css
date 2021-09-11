@@ -1,15 +1,15 @@
-/* #background {
+#background {
   position: fixed;
   height: 100%;
   width: 100%;
   background-color: #CDC4F2;
   left: 0;
   top: 0;
-} */
-
-#background {
-  background-color: #CDC4F2;
 }
+
+/* #background {
+  background-color: #CDC4F2;
+} */
 
 #login {
   background-position: left 10px top 10px;

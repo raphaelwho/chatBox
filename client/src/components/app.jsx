@@ -36,11 +36,11 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <PageHeader title={'Spot Management'} />
+        {/* <PageHeader title={'Spot Management'} />
         HELLO GALILEO
         <MapContainer locations={this.state.locations}/>
         <Registration />
-        <TxtBox label={'yourLabel'} />
+        <TxtBox label={'yourLabel'} /> */}
         <Login locations={this.state.locations}/>
       </div>
     )

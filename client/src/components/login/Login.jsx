@@ -4,17 +4,7 @@ import LoginBox from './LoginBox.jsx';
 // import Profile from '../shared/profile/Profile.jsx';
 import Registration from '../shared/profile/Registration.jsx';
 import MapContainer from '../booking/map.jsx';
-
-// export default () => (
-//   <div id='background'>
-//     <div id='login'>
-//       <div id='name'>
-//         GALILEO
-//       </div>
-//       <LoginBox />
-//     </div>
-//   </div>
-// );
+const axios = require('axios');
 
 class Login extends React.Component {
   constructor(props) {
@@ -22,18 +12,66 @@ class Login extends React.Component {
 
     this.state = {
       showLogin: true,
-      toRegister: false
+      toRegister: false,
+      username: '',
+      password: '',
+      message: ''
     }
   }
 
-  login() {
-    console.log('login check!', this.state);
-    // axios.get, db.getUser, confirm psw
-    this.setState({showLogin: false});
+  componentDidMount() {
+    let username = localStorage.getItem('username');
+    if (username !== null) {
+      this.setState({username: username});
+    }
   }
 
-  register() {
+  handleChange(){
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  async login() {
+    // console.log("name", document.getElementById("username").value);
+    const data = {
+      username: this.state.username,
+      password: this.state.password
+    };
+    console.log('state before login', this.state);
+    console.log('state before login data', data);
+
+    axios.post('/login', data)
+      .then(result => {
+        console.log('login?', result.data);
+        let newState;
+        if (result.data === 'noExistUser') {
+          newState = {
+            message: 'Not a existing user! Try again!'
+          }
+        // } else if (result.data === 'successLogin') {
+        } else if (result.data.user_id) {
+          localStorage.setItem('username', this.state.username);
+          newState = {
+            showLogin: false
+          };
+        } else {
+          newState = {
+            password: '',
+            message: 'Incorrect Password. Try again!'
+          };
+        }
+        this.setState(newState, ()=>console.log('login success: ', this.state));
+        // console.log('state after register', this.state);
+      })
+      .catch(err => {
+        console.log('err: ', err);
+      })
+  }
+
+  toRegister() {
     console.log('direct to register!');
+    localStorage.removeItem('username');
     this.setState({showLogin: false, toRegister: true});
   }
 
@@ -45,7 +83,7 @@ class Login extends React.Component {
             <div id='name'>
               GALILEO
             </div>
-            <LoginBox login={this.login.bind(this)} register={this.register.bind(this)}/>
+            <LoginBox login={this.login.bind(this)} register={this.toRegister.bind(this)} handleChange={this.handleChange.bind(this)}/>
           </div>
         </div>
       )
