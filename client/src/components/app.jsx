@@ -3,6 +3,7 @@ import Registration from './profile/Registration.jsx';
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import './app.css';
 import MapView from './mapview/MapView.jsx';
+import BottomModal from './shared/bottomModal/BottomModal.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class App extends React.Component {
         <PageHeader title={'Spot Management'} isVisible={true} />
         <MapView />
         <Registration />
+        <BottomModal isModalOpen={true} isSubmodalOpen={true} />
       </div>
     )
   };
