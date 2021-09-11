@@ -4,6 +4,7 @@ import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import './app.css';
 import MapView from './mapview/MapView.jsx';
 import BottomModal from './shared/bottomModal/BottomModal.jsx';
+import TabSelector from './shared/tabSelector/TabSelector.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,10 +34,11 @@ class App extends React.Component {
     return (
 
       <div>
-        <PageHeader title={'Spot Management'} isVisible={true} />
+        <TabSelector></TabSelector>
+        {/* <PageHeader title={'Spot Management'} isVisible={true} />
         <MapView />
         <Profile type={'registration'} />
-        <Profile type={'update'} />
+        <Profile type={'update'} /> */}
       </div>
     )
   };
