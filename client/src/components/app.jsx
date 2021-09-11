@@ -1,7 +1,6 @@
 import React from 'react';
 import Registration from './profile/Registration.jsx';
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
-import TxtBox from './shared/txtBox/TxtBox.jsx';
 import './app.css';
 import MapView from './mapview/MapView.jsx';
 
@@ -33,10 +32,9 @@ class App extends React.Component {
     return (
 
       <div>
-        <MapView />
         <PageHeader title={'Spot Management'} isVisible={true} />
+        <MapView />
         <Registration />
-        <TxtBox label={'yourLabel'} />
       </div>
     )
   };
