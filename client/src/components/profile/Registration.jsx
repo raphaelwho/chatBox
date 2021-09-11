@@ -1,5 +1,5 @@
 import React from 'react';
-import TxtBox from '../txtBox/TxtBox.jsx';
+import TxtBox from '../shared/txtBox/TxtBox.jsx';
 
 class Registration extends React.Component {
   constructor(props) {
