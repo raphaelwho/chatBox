@@ -1,5 +1,7 @@
+
 import React from 'react';
 import style from './Registration.css'
+import Button from '../shared/button/button.jsx';
 
 class Registration extends React.Component {
   constructor(props) {
