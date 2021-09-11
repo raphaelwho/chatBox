@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './Registration.css'
 import Registration from './Registration.jsx';
+import $ from 'jquery';
 
 const Profile = ({type}) => {
 
@@ -8,15 +9,22 @@ const Profile = ({type}) => {
 
   addUser = (data) => {
 
-    var data = this.state;
+
     console.log('new',data)
 
     $.ajax({
-      url: 'http://localhost:3000/creat_account',
+      url: 'http://localhost:3000/create-account',
       type: 'POST',
       data: data,
       success: (res) => {
-        console.log("success",res);
+        if (res.rowCount===1){
+          console.log("success",res);
+          alert("success");
+        }else if (res.rowCount===0) {
+          console.log("Uesrname already exists");
+          alert("Uesrname already exists");
+        }
+
       },
       error: (err) => {
         console.log('error',err);

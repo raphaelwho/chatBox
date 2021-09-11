@@ -2,7 +2,6 @@
 import React from 'react';
 import style from './Registration.css'
 import Button from '../shared/button/button.jsx';
-import $ from 'jquery';
 
 class Registration extends React.Component {
   constructor(props) {
@@ -61,7 +60,7 @@ class Registration extends React.Component {
     // to Comment out below
     if (this.props.btn === 'Finish Registration') {
       console.log('RegisterUser State: ', this.state);
-      this.props.addUser(this.state);
+      this.props.handleUser(this.state);
     }
     if (this.props.btn === 'Save Information') {
       console.log('UpdateUser State: ', this.state);
@@ -69,7 +68,7 @@ class Registration extends React.Component {
     }
     // to Comment out above
 
-    this.props.handleUser(this.state);
+    // this.props.handleUser(this.state);
 
   }
 
@@ -85,6 +84,7 @@ class Registration extends React.Component {
   }
 
   render() {
+    console.log(this.props)
 
     return (
       <div className="registration">

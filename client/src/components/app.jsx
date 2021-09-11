@@ -42,7 +42,8 @@ class App extends React.Component {
         {/* <MapContainer locations={this.state.locations}/> */}
         {/* <Login /> */}
         <Profile type={'registration'} />
-        <Profile type={'update'} />
+        {/* <Profile type={'update'} /> */}
+        <Login locations={this.state.locations}/>
         {/* <TxtBox label={'yourLabel'} /> */}
       </div>
     )
