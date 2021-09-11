@@ -29,11 +29,6 @@ class Registration extends React.Component {
 
     return (
       <div className="registration">
-        {/* <div className="backtoLogin"><span className="backBtn">{'\u1438'}</span> <span> Back to Login</span></div> */}
-        <div className="backtoLogin">
-          <div className="backBtn">{'\u1438'} </div>
-          <div className="backWord"> Back to Login</div>
-        </div>
         <div className="registrationContainer">
           <TxtBox label={"Username"} onChange={this.handleChange.bind(this)}></TxtBox>
           <TxtBox label={"Password"} onChange={this.handleChange.bind(this)}></TxtBox>
