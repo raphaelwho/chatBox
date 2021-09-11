@@ -1,13 +1,9 @@
 import React from 'react';
-import ParkingSpot from './shared/parkingSpot/parkingSpot.jsx';
-import ChevronRight from './shared/icons/chevronRight.jsx';
-import Trash from './shared/icons/trash.jsx';
 import Registration from './profile/Registration.jsx';
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import TxtBox from './shared/txtBox/TxtBox.jsx';
 import './app.css';
 import MapView from './mapview/MapView.jsx';
-import Login from './Login/Login.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -38,7 +34,7 @@ class App extends React.Component {
 
       <div>
         <MapView />
-        <PageHeader title={'Spot Management'} />
+        <PageHeader title={'Spot Management'} isVisible={true} />
         <Registration />
         <TxtBox label={'yourLabel'} />
       </div>
