@@ -39,12 +39,11 @@ class Login extends React.Component {
       username: this.state.username,
       password: this.state.password
     };
-    console.log('state before login', this.state);
-    console.log('state before login data', data);
+    // console.log('state before login', this.state);
 
     axios.post('/login', data)
       .then(result => {
-        console.log('login?', result.data);
+        // console.log('login?', result.data);
         let newState;
         if (result.data === 'noExistUser') {
           newState = {
@@ -66,12 +65,12 @@ class Login extends React.Component {
         // console.log('state after register', this.state);
       })
       .catch(err => {
-        console.log('err: ', err);
+        console.log('Login err: ', err);
       })
   }
 
   toRegister() {
-    console.log('direct to register!');
+    // console.log('direct to register!');
     localStorage.removeItem('username');
     this.setState({showLogin: false, toRegister: true});
   }
