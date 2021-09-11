@@ -1,23 +1,28 @@
-#login {
+/* #background {
+  position: fixed;
   height: 100%;
   width: 100%;
-  position: fixed;
+  background-color: #CDC4F2;
   left: 0;
   top: 0;
+} */
+
+#background {
+  background-color: #CDC4F2;
+}
+
+#login {
   background-position: left 10px top 10px;
   background-size: 25%;
   background-repeat: no-repeat;
   background-image: url(./assets/satellite.png);
-  background-color: #CDC4F2
 }
 
 #name {
-  position: fixed;
-  top: 25vh;
-  margin: auto;
-  width: 100%;
+  padding-top: 16vh;
   text-align: center;
   font-family: "Baloo Bhaijaan", Helvetica, sans-serif;
-  font-size: 10vw;
-  color: white
+  font-size: 7vmax;
+  color: white;
+  margin-top: 10%;
 }

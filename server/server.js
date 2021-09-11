@@ -6,6 +6,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const router = require('./routes/routes.js');
 const db = require('../db/index.js');
+app.use(express.json());
+app.use(express.urlencoded( {extended: true} ))
 
 const servingPath = path.join(__dirname, '..', 'client', 'dist');
 app.use(express.static(servingPath));
