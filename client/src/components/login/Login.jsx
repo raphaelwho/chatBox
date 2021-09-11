@@ -1,9 +1,10 @@
 import React from 'react';
 import './Login.css';
 import LoginBox from './LoginBox.jsx';
-// import Profile from '../shared/profile/Profile.jsx';
-import Registration from '../shared/profile/Registration.jsx';
-import MapContainer from '../booking/map.jsx';
+import Profile from '../profile/Profile.jsx';
+// import Registration from '../shared/profile/Registration.jsx';
+// import MapContainer from '../booking/map.jsx';
+import 'regenerator-runtime/runtime';
 const axios = require('axios');
 
 class Login extends React.Component {
@@ -90,13 +91,13 @@ class Login extends React.Component {
     } else if (this.state.toRegister) {
       return (
         // <div>Register</div>
-        // <Profile type={'registration'} />
-        <Registration btn={'Finish Registration'} />
+        <Profile type={'registration'} />
+        // <Registration btn={'Finish Registration'} />
       );
     } else {
       return (
-        // <div>Login success! Let's search parking spot!</div>
-        <MapContainer locations={this.props.locations} />
+        <div>Login success! Let's search parking spot!</div>
+        // <MapContainer locations={this.props.locations} />
       );
     }
   }
