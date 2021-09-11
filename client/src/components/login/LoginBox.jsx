@@ -19,8 +19,9 @@ class LoginBox extends React.Component {
             <input required type="text" id="password" className="login-input" name="password" value ={this.props.password} placeholder="Password" onChange={this.props.handleChange}></input><br></br>
             <button id="login-Btn" className="login-Btn" onClick={this.props.login}>LOGIN</button>
             <p id="to-register" className="to-register" onClick={this.props.register}>Create an Account</p>
+            <p id="login-msg" className="login-msg">{this.props.message}</p>
           </div>
-          <h2>{this.props.message}</h2>
+          {/* <h2>{this.props.message}</h2> */}
         </div>
       )
   }
