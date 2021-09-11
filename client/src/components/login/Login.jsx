@@ -22,7 +22,7 @@ class Login extends React.Component {
 
   componentDidMount() {
     let username = localStorage.getItem('username');
-    console.log('username: ', username)
+    // console.log('username: ', username)
     if (username) {
       this.setState({username: username});
     }
@@ -61,14 +61,14 @@ class Login extends React.Component {
           };
         // } else if (result.data === 'failLogin'){
         } else {
-          console.log('here???')
           newState = {
             password: '',
             message: 'Incorrect Password. Try again!'
           };
         }
-        this.setState(newState, ()=>console.log('login success? ', this.state));
-        console.log('state after register', this.state);
+        this.setState(newState);
+        // this.setState(newState, ()=>console.log('login success? ', this.state));
+        // console.log('state after register', this.state);
       })
       .catch(err => {
         console.log('Login err: ', err);
