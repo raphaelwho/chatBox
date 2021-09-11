@@ -36,16 +36,15 @@ class AddSpot extends React.Component {
       <div className='add-spot-home'>
 
        {/* make into box */}
-       <div className='add-spot-photo'>
-        <label>Add Photo</label>
-        <input type="text" id='photo' className='add-spot-input' onChange={this.handleChange}></input>
-       </div>
 
        <div className='add-spot-form'>
+          <div className='add-spot-photo'>
+            {/* <label>Add Photo</label>
+            <input type="text" id='photo' className='add-spot-input' onChange={this.handleChange}></input> */}
+            <div>Add Photo</div>
+          </div>
           <label>Address</label>
           <input type="text" id="address" className='add-spot-input' onChange={this.handleChange}></input>
-          <label>Price</label>
-          <input type='text' id='price' className='add-spot-input' onChange={this.handleChange}></input>
           <label>Type</label>
           <select className='add-spot-select' id='type' onChange={this.handleChange}>
             <option value='driveway'>Driveway</option>
@@ -54,8 +53,12 @@ class AddSpot extends React.Component {
             <option value='indoor'>Indoor</option>
             <option value='outdoor'>Outdoor</option>
           </select>
+          <label>Price</label>
+          <input type='text' id='price' className='add-spot-input' onChange={this.handleChange}></input>
         </div>
-       {/* <Button func={this.handleConfirmClick} text={'Add Spot'}/>  */}
+       <div className='button-container'>
+        <Button func={this.handleConfirmClick} text={'Add Spot'}/>
+       </div>
       </div>
     )
 

@@ -38,15 +38,15 @@ class UpdateSpot extends React.Component {
        {/* make into box show photo*/}
 
        <div className='add-spot-form'>
-        {/* <div className='add-spot-photo'> */}
-          <label>Edit Photo</label>
-          <input type="text" id='photo' value={this.state.photo} className='add-spot-input' onChange={this.handleChange}></input>
-        {/* </div> */}
+          <div className='add-spot-photo'>
+            {/* <label>Add Photo</label>
+            <input type="text" id='photo' className='add-spot-input' onChange={this.handleChange}></input> */}
+            <div>Edit Photo</div>
+          </div>
+
           {/* address maybe should be static */}
           <label>Address</label>
           <input type="text" id="address" value={this.state.address} className='add-spot-input' onChange={this.handleChange}></input>
-          <label>Price</label>
-          <input type='text' id='price' value={this.state.price} className='add-spot-input' onChange={this.handleChange}></input>
           <label>Type</label>
           {/* make select default value match this.props.type initially */}
           <select className='add-spot-select' id='type' onChange={this.handleChange}>
@@ -56,9 +56,11 @@ class UpdateSpot extends React.Component {
             <option value='indoor'>Indoor</option>
             <option value='outdoor'>Outdoor</option>
           </select>
+          <label>Price</label>
+          <input type='text' id='price' value={this.state.price} className='add-spot-input' onChange={this.handleChange}></input>
       </div>
       <div className='button-container'>
-        <Button func={this.handleSaveClick} text={'Add Spot'}/>
+        <Button func={this.handleSaveClick} text={'Add Spot'} />
       </div>
     </div>
     )
