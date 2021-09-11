@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Registration.css'
+// import Registration from './copy.jsx';
 import Registration from './Registration.jsx';
 import $ from 'jquery';
 
