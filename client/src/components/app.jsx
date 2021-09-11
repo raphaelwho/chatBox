@@ -35,7 +35,6 @@ class App extends React.Component {
       <div>
         <PageHeader title={'Spot Management'} isVisible={true} />
         <MapView />
-        <BottomModal isModalOpen={true} isSubmodalOpen={true} />
         <Profile type={'registration'} />
         <Profile type={'update'} />
       </div>
