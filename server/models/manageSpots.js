@@ -14,7 +14,7 @@ const getSpots = (userId) => {
 }
 
 const addSpot = (options) => {
-  let query = `INSERT INTO spots(host_id, lat, long, address, type, price, photo_url, geom) VALUES ('${options.hostId}', '${options.lat}', '${options.long}', '${options.address}', '${options.type}', '${options.price}', '${options.photo}', 'POINT(${options.lat}, ${options.long})')`;
+  let query = `INSERT INTO spots(host_id, lat, long, address, type, price, photo_url, geom) VALUES ('${options.hostId}', '${options.lat}', '${options.long}', '${options.address}', '${options.type}', '${options.price}', '${options.photo}', 'POINT(${options.lat} ${options.long})')`;
   return db.query(query)
     .then((results) => {
       console.log('added new spot - models', results.rows)

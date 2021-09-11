@@ -14,7 +14,7 @@ const getMySpots = (req, res) => {
 }
 
 const addNewSpot = (req, res) => {
- // req.body = { hostId:   , lat:    , long:     , price:    , address:   , type:    , price:     , photo:    , }
+ // req.body = { hostId:   , lat:    , long:     , price:    , address:   , type:    , photo:    , }
  model.addSpot(req.body)
    .then(() => {
      console.log('success adding new post - controller');
