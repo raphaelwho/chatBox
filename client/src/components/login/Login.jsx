@@ -22,7 +22,8 @@ class Login extends React.Component {
 
   componentDidMount() {
     let username = localStorage.getItem('username');
-    if (username !== null) {
+    console.log('username: ', username)
+    if (username) {
       this.setState({username: username});
     }
   }
@@ -47,22 +48,27 @@ class Login extends React.Component {
         let newState;
         if (result.data === 'noExistUser') {
           newState = {
+            username: '',
+            password: '',
             message: 'Not a existing user! Try again!'
           }
         // } else if (result.data === 'successLogin') {
         } else if (result.data.user_id) {
           localStorage.setItem('username', this.state.username);
+          localStorage.setItem('user_id', result.data.user_id);
           newState = {
             showLogin: false
           };
+        // } else if (result.data === 'failLogin'){
         } else {
+          console.log('here???')
           newState = {
             password: '',
             message: 'Incorrect Password. Try again!'
           };
         }
-        this.setState(newState, ()=>console.log('login success: ', this.state));
-        // console.log('state after register', this.state);
+        this.setState(newState, ()=>console.log('login success? ', this.state));
+        console.log('state after register', this.state);
       })
       .catch(err => {
         console.log('Login err: ', err);
@@ -72,6 +78,7 @@ class Login extends React.Component {
   toRegister() {
     // console.log('direct to register!');
     localStorage.removeItem('username');
+    localStorage.removeItem('user_id');
     this.setState({showLogin: false, toRegister: true});
   }
 
@@ -83,7 +90,7 @@ class Login extends React.Component {
             <div id='name'>
               GALILEO
             </div>
-            <LoginBox login={this.login.bind(this)} register={this.toRegister.bind(this)} handleChange={this.handleChange.bind(this)}/>
+            <LoginBox login={this.login.bind(this)} register={this.toRegister.bind(this)} handleChange={this.handleChange.bind(this)} username={this.state.username} password={this.state.password} placeholder={this.state.placeholder}/>
           </div>
         </div>
       )
