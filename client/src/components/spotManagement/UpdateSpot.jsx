@@ -38,10 +38,10 @@ class UpdateSpot extends React.Component {
        {/* make into box show photo*/}
 
        <div className='add-spot-form'>
-        <div className='add-spot-photo'>
+        {/* <div className='add-spot-photo'> */}
           <label>Edit Photo</label>
           <input type="text" id='photo' value={this.state.photo} className='add-spot-input' onChange={this.handleChange}></input>
-        </div>
+        {/* </div> */}
           {/* address maybe should be static */}
           <label>Address</label>
           <input type="text" id="address" value={this.state.address} className='add-spot-input' onChange={this.handleChange}></input>
@@ -57,7 +57,9 @@ class UpdateSpot extends React.Component {
             <option value='outdoor'>Outdoor</option>
           </select>
       </div>
-       <Button func={this.handleSaveClick} text={'Add Spot'}/>
+      <div className='button-container'>
+        <Button func={this.handleSaveClick} text={'Add Spot'}/>
+      </div>
     </div>
     )
 

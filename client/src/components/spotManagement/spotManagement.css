@@ -12,11 +12,18 @@ body {
 }
 
 .add-spot-home {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
+  /* margin: auto; */
+  /* display: flex; */
+  /* flex-direction: column; */
   width: 100%;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  /* text-align: center; */
+
 }
 
 .add-spot-form {
@@ -51,5 +58,16 @@ body {
   border-radius: 8px;
   box-sizing: border-box;
   font-size: 1.3em;
+}
+
+.button-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+  padding: 50px 0;
+  border-top: 12px solid lightgrey;
 }
 
