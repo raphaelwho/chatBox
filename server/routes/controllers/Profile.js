@@ -11,6 +11,7 @@ const getProfile = async (req,res) =>{
   }
 }
 const createProfile = async (req,res) =>{
+  console.log("req.body",req.body)
   try {
     const newPost = await models.createProfile(req.body);
     res.status(201).json(newPost)
