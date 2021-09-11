@@ -6,10 +6,11 @@
   max-width: 100px;
   height: 30%;
   width: 20%;
-  margin-left: 75vw;
-  margin-top: 20%;
   border-radius: 20px;
   align-content: center;
+  display: grid;
+  grid-column: auto;
+  grid-gap: 50px;
 }
 
 .tab-selector {
