@@ -37,10 +37,43 @@ const Profile = ({type}) => {
 
   getUser = () => {
     console.log('Update! GetUser!');
+    let user_id = localStorage.getItem('user_id')||1;
     // axios.get, db.getUser
+    $.ajax({
+      url: `http://localhost:3000/my-profile/${user_id}`,
+      type: 'GET',
+      success: (res) => {
+        console.log(res)
+
+      },
+      error: (err) => {
+        console.log('error',err);
+      }
+    })
   }
 
-  updateUser = () => {
+  updateUser = (data) => {
+    console.log('update',data)
+    let user_id = localStorage.getItem('user_id')||1;
+    $.ajax({
+      url: `http://localhost:3000/update-my-profile`,
+      type: 'PUT',
+      data: {'user_id':user_id, ...data},
+      success: (res) => {
+        console.log('rws',res)
+        if (res.rowCount===1){
+          console.log("success",res);
+          alert("success");
+        }else if (res.rowCount===0) {
+          console.log("Uesrname already exists");
+          alert("Uesrname already exists");
+        }
+
+      },
+      error: (err) => {
+        console.log('error',err);
+      }
+    })
     console.log('Update! UpdateUser!');
     // axios.put, db.updateUser
   }
@@ -54,7 +87,7 @@ const Profile = ({type}) => {
   if (type === 'update') {
     console.log('ToUpdate!');
     btn = "Save Information";
-    handleUser = getUser;
+    handleUser = updateUser;
   }
 
   return (

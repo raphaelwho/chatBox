@@ -19,20 +19,27 @@ exports.createProfile = async (post) => {
     let ans = await client.query(query);
     return ans;
   } catch (error) {
-    throw e
-    rror;
+    throw error;
   }
 }
 
-exports.updateProfile = async (user_id) =>{
+exports.updateProfile = async (post,user_id) =>{
+  const {username,password,email,first_name,last_name}= post;
   try {
-    let query = `SELECT user_id, username, password, first_name, last_name, email FROM users WHERE user_id = ${user_id} `;
+    let query = `UPDATE users
+    SET username = '${username}',
+    password='${password}',
+    first_name='${first_name}',
+    last_name='${last_name}',
+    email='${email}'
+    WHERE user_id = ${user_id} `;
     let ans = await client.query(query);
     return ans;
   } catch (error) {
     throw error;
   }
 }
+
 
 exports.getUser = async (username) => {
   // console.log('getUser from models username: ', username);

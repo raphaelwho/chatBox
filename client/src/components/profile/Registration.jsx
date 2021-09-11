@@ -3,6 +3,7 @@ import React from 'react';
 import style from './Registration.css'
 import Button from '../shared/button/button.jsx';
 import Login from '../login/Login.jsx';
+import $ from 'jquery';
 
 class Registration extends React.Component {
   constructor(props) {
@@ -12,23 +13,29 @@ class Registration extends React.Component {
       username: '',
       password: '',
       email: '',
-      firstName: '',
-      lastName: '',
+      first_name: '',
+      last_name: '',
       back:false
     }
   }
 
   componentDidMount() {
+
     if (this.props.btn === 'Save Information') {
-      this.props.handleUser();  // to get existingProfile
-      let existingProfile = {
-        username: '1',
-        password: '2',
-        email: '3@gmail.com',
-        firstName: '4',
-        lastName: '5'
-      };
-      this.setState(existingProfile, () => console.log('GetExistingUser State: ', this.state));
+      let user_id = localStorage.getItem('user_id')||1;
+      // axios.get, db.getUser
+      $.ajax({
+        url: `http://localhost:3000/my-profile/${user_id}`,
+        type: 'GET',
+        success: (res) => {
+          this.setState(res, () => console.log('GetExistingUser State: ', this.state));
+
+        },
+        error: (err) => {
+          console.log('error',err);
+        }
+      })
+
     }
   }
 
@@ -45,32 +52,6 @@ class Registration extends React.Component {
 
   submit(event) {
     event.preventDefault();
-    // var data = this.state;
-    // console.log('new',data)
-
-    // $.ajax({
-    //   url: 'http://localhost:3000/creat_account',
-    //   type: 'POST',
-    //   data: data,
-    //   success: (res) => {
-    //     console.log("success",res);
-    //   },
-    //   error: (err) => {
-    //     console.log('error',err);
-    //   }
-    // })
-
-    // to Comment out below
-    // if (this.props.btn === 'Finish Registration') {
-    //   console.log('RegisterUser State: ', this.state);
-    //   this.props.handleUser(this.state);
-    // }
-    // if (this.props.btn === 'Save Information') {
-    //   console.log('UpdateUser State: ', this.state);
-    //   // this.props.updateUser(this.state);
-    // }
-    // to Comment out above
-
     this.props.handleUser(this.state);
 
   }
@@ -106,9 +87,9 @@ class Registration extends React.Component {
           <label>Email</label>
           <input required type="email" id="email" className="registrationInput" value ={this.state.email} onChange={this.handleChange.bind(this)}></input>
           <label>First Name</label>
-          <input required type="text" id="firstName" className="registrationInput" value ={this.state.firstName} onChange={this.handleChange.bind(this)}></input>
+          <input required type="text" id="first_name" className="registrationInput" value ={this.state.first_name} onChange={this.handleChange.bind(this)}></input>
           <label>Last Name</label>
-          <input type="text" id="lastName" className="registrationInput" value ={this.state.lastName} onChange={this.handleChange.bind(this)} ></input>
+          <input type="text" id="last_name" className="registrationInput" value ={this.state.last_name} onChange={this.handleChange.bind(this)} ></input>
           <input type="submit" className="registrationBtn" value={this.props.btn}/>
         {/* </div> */}
         </form>
