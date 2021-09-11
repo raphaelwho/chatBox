@@ -1,13 +1,9 @@
 import React from 'react';
-import ParkingSpot from './shared/parkingSpot/parkingSpot.jsx';
-import ChevronRight from './shared/icons/chevronRight.jsx';
-import Trash from './shared/icons/trash.jsx';
-// import Profile from './shared/profile/Profile.jsx';
 import Profile from './profile/Profile.jsx';
 import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import './app.css';
-// import MapContainer from './booking/map.jsx';
-import Login from './login/Login.jsx'
+import MapView from './mapview/MapView.jsx';
+import BottomModal from './shared/bottomModal/BottomModal.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -38,12 +34,9 @@ class App extends React.Component {
 
       <div>
         <PageHeader title={'Spot Management'} isVisible={true} />
-        {/* <MapView /> */}
-        {/* <MapContainer locations={this.state.locations}/> */}
-        {/* <Login /> */}
+        <MapView />
         <Profile type={'registration'} />
         <Profile type={'update'} />
-        {/* <TxtBox label={'yourLabel'} /> */}
       </div>
     )
   };
