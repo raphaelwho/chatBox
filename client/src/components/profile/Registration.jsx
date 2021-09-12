@@ -76,12 +76,11 @@ class Registration extends React.Component {
 
     return (
       <div className="registration">
-        {/* <div className="backtoLogin"><span className="backBtn">{'\u1438'}</span> <span> Back to Login</span></div> */}
         { this.showBacktoLogin() }
         <form onSubmit = {this.submit.bind(this)} className="registrationContainer">
-        {/* <div className="registrationContainer"> */}
+
           <label>Username</label>
-          <input type="text" id="username" className="registrationInput" value ={this.state.username} onChange={this.handleChange.bind(this)} required ></input>
+          <input required type="text" id="username" className="registrationInput" value ={this.state.username} onChange={this.handleChange.bind(this)} required ></input>
           <label>Password</label>
           <input required type="text" id="password" className="registrationInput" value ={this.state.password} onChange={this.handleChange.bind(this)}></input>
           <label>Email</label>
@@ -91,7 +90,7 @@ class Registration extends React.Component {
           <label>Last Name</label>
           <input type="text" id="last_name" className="registrationInput" value ={this.state.last_name} onChange={this.handleChange.bind(this)} ></input>
           <input type="submit" className="registrationBtn" value={this.props.btn}/>
-        {/* </div> */}
+
         </form>
       </div>
     )
