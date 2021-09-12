@@ -17,12 +17,14 @@ class MapView extends React.Component{
       reservationStartDate: null, // to be passed to modal view
       reservationEndDate: null, // to be passed to modal view
       spots: [], // passed to map component and rendered
+      selectedSpot: '', // passed to modal
       showBottomModal: false
     };
     this.getFreeSpots = this.getFreeSpots.bind(this);
     this.getFreeSpotsAndUpdate = this.getFreeSpotsAndUpdate.bind(this);
     this.openBottomModal = this.openBottomModal.bind(this);
     this.closeBottomModal = this.closeBottomModal.bind(this);
+    this.selectSpot = this.selectSpot.bind(this);
   }
 
   getFreeSpots(lat, lng, start, end) {
@@ -63,15 +65,21 @@ class MapView extends React.Component{
     })
   }
 
+  selectSpot(spot) {
+    this.setState({
+      selectedSpot: spot
+    }, () => console.log('selected spot: ', this.state.selectedSpot));
+  }
+
   render() {
     return (
       <div>
-        <Map center={this.state.center} spots={this.state.spots} openBottomModal={this.openBottomModal}/>
+        <Map center={this.state.center} spots={this.state.spots} selectSpot={this.selectSpot} openBottomModal={this.openBottomModal}/>
         <Search getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}/>
         <BottomModal
           isModalOpen={this.state.showBottomModal}
           modalHeaderContent={(<div>this is the modal header</div>)}
-          modalContent={(<div>test</div>)}
+          modalContent={(<div>{this.state.selectedSpot.address}</div>)}
           onModalClose={() => {
             console.log('modal was closed');
             this.closeBottomModal();
