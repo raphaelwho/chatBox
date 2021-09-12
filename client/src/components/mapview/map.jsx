@@ -24,7 +24,7 @@ class MapContainer extends React.Component {
   }
 
   onClose = () => {
-    this.setState({selected: {}})
+    this.setState({ selected: {} })
   }
 
   render() {
@@ -37,11 +37,11 @@ class MapContainer extends React.Component {
           center={this.props.center}
           zoom={14}
         >
-          { /* Child components, such as markers, info windows, etc. */ }
+          { /* Child components, such as markers, info windows, etc. */}
           {
             this.props.spots.map((item, index) => {
               return (
-              <Marker key={index} position={item.location} onClick={() => this.onClick(item)}/>
+                <Marker key={index} position={item.location} onClick={() => this.onClick(item)} />
               )
             })
           }
@@ -49,14 +49,14 @@ class MapContainer extends React.Component {
             this.state.selected.location &&
             (
               <InfoWindow
-              position={this.state.selected.location}
-              clickable={true}
-              onCloseClick={this.onClose}
-            >
-              <p>{this.state.selected.address}</p>
-            </InfoWindow>
+                position={this.state.selected.location}
+                clickable={true}
+                onCloseClick={this.onClose}
+              >
+                <p>{this.state.selected.address}</p>
+              </InfoWindow>
             )
-         }
+          }
           <></>
         </GoogleMap>
       </LoadScript>
