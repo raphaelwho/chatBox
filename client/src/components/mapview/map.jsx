@@ -3,8 +3,8 @@ import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/ap
 import Geocode from "react-geocode";
 
 const containerStyle = {
-  width: '900px',
-  height: '80vh'
+  width: '100%',
+  height: '100%'
 };
 
 class MapContainer extends React.Component {
