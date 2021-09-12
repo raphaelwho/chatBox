@@ -42,22 +42,13 @@ class Search extends React.Component {
   }
 
   handleSearch() {
-    Geocode.fromAddress(this.state.address)  // convert the address to lat and lng
+    Geocode.fromAddress(this.state.address)
     .then((response) => {
       const { lat, lng } = response.results[0].geometry.location;
       const { startTime, endTime, startDate, endDate } = this.state;
       convertToUNIXTime(startTime, endTime, startDate, endDate); // TODO: implement this function
       this.props.getFreeSpotsAndUpdate(lat, lng, null, null, startTime, endTime, startDate, endDate);
-      // return {
-      //   lat: lat,
-      //   lng: lng
-      // }
     })
-    // .then((location) => {
-    //   const { startTime, endTime, startDate, endDate } = this.state;
-    //   convertToUNIXTime(startTime, endTime, startDate, endDate); // TODO: implement this function
-    //   this.props.getFreeSpotsAndUpdate(location.lat, location.lng, null, null, startTime, endTime, startDate, endDate);
-    // })
     .catch((err) => {
       console.error(err);
     });
