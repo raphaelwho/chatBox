@@ -12,18 +12,16 @@ class LoginBox extends React.Component {
   render() {
       return (
         <div className="login-container">
-          <div className="login-box">
-            <label htmlFor="username"></label>
+          <form className="login-box" onSubmit={this.props.login}>
             <input required type="text" id="username" className="login-input" name="username" value ={this.props.username} placeholder="Username" onChange={this.props.handleChange}></input><br></br>
-            <label htmlFor="password"></label>
-            <input required type="text" id="password" className="login-input" name="password" value ={this.props.password} placeholder="Password" onChange={this.props.handleChange}></input><br></br>
-            <button id="login-Btn" className="login-Btn" onClick={this.props.login}>LOGIN</button>
+            <input required type="text" className="login-input" name="password" value ={this.props.password} placeholder="Password" onChange={this.props.handleChange}></input><br></br>
+            <input type="submit" className="login-Btn" value='LOGIN'></input>
             <p id="to-register" className="to-register" onClick={this.props.register}>Create an Account</p>
             <p id="login-msg" className="login-msg">{this.props.message}</p>
-          </div>
-          {/* <h2>{this.props.message}</h2> */}
+          </form>
         </div>
       )
+
   }
 }
 
