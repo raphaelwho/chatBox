@@ -3,6 +3,7 @@ import React from 'react';
 import style from './Registration.css'
 import Button from '../shared/button/button.jsx';
 import Login from '../login/Login.jsx';
+import $ from 'jquery';
 
 class Registration extends React.Component {
   constructor(props) {
@@ -43,8 +44,8 @@ class Registration extends React.Component {
     this.setState({back:true})
   }
 
-  submit(event) {
-    event.preventDefault();
+  submit() {
+    // event.preventdefault();
     // var data = this.state;
     // console.log('new',data)
 
@@ -61,17 +62,17 @@ class Registration extends React.Component {
     // })
 
     // to Comment out below
-    // if (this.props.btn === 'Finish Registration') {
-    //   console.log('RegisterUser State: ', this.state);
-    //   this.props.handleUser(this.state);
-    // }
-    // if (this.props.btn === 'Save Information') {
-    //   console.log('UpdateUser State: ', this.state);
-    //   // this.props.updateUser(this.state);
-    // }
+    if (this.props.btn === 'Finish Registration') {
+      console.log('RegisterUser State: ', this.state);
+      this.props.handleUser(this.state);
+    }
+    if (this.props.btn === 'Save Information') {
+      console.log('UpdateUser State: ', this.state);
+      // this.props.updateUser(this.state);
+    }
     // to Comment out above
 
-    this.props.handleUser(this.state);
+    // this.props.handleUser(this.state);
 
   }
 
@@ -97,10 +98,9 @@ class Registration extends React.Component {
       <div className="registration">
         {/* <div className="backtoLogin"><span className="backBtn">{'\u1438'}</span> <span> Back to Login</span></div> */}
         { this.showBacktoLogin() }
-        <form onSubmit = {this.submit.bind(this)} className="registrationContainer">
-        {/* <div className="registrationContainer"> */}
+        <div className="registrationContainer">
           <label>Username</label>
-          <input type="text" id="username" className="registrationInput" value ={this.state.username} onChange={this.handleChange.bind(this)} required ></input>
+          <input required type="text" id="username" className="registrationInput" value ={this.state.username} onChange={this.handleChange.bind(this)}></input>
           <label>Password</label>
           <input required type="text" id="password" className="registrationInput" value ={this.state.password} onChange={this.handleChange.bind(this)}></input>
           <label>Email</label>
@@ -108,10 +108,9 @@ class Registration extends React.Component {
           <label>First Name</label>
           <input required type="text" id="firstName" className="registrationInput" value ={this.state.firstName} onChange={this.handleChange.bind(this)}></input>
           <label>Last Name</label>
-          <input type="text" id="lastName" className="registrationInput" value ={this.state.lastName} onChange={this.handleChange.bind(this)} ></input>
-          <input type="submit" className="registrationBtn" value={this.props.btn}/>
-        {/* </div> */}
-        </form>
+          <input required type="text" id="lastName" className="registrationInput" value ={this.state.lastName} onChange={this.handleChange.bind(this)}></input>
+        </div>
+        <button className="registrationBtn" onClick={this.submit.bind(this)}>{this.props.btn}</button>
       </div>
     )
   }
