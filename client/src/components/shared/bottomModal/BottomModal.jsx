@@ -26,14 +26,14 @@ export default class BottomModal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state = { // this state isn't needed, state is maintined in the parent component
       isModalOpen: this.props.isModalOpen || false,
       isSubmodalOpen: this.props.isSubmodalOpen || false,
     }
   }
 
   render() {
-
+    // changed isOpen to this.props from this.state. this.state prevents re-rendering on prop changes
     return (
       <div>
         {/* Modal */}
@@ -45,7 +45,7 @@ export default class BottomModal extends React.Component {
         </Sheet >
 
         {/* Submodal */}
-        <Sheet disableDrag={true} isOpen={this.state.isSubmodalOpen} onClose={() => { }} snapPoints={[0.28]}>
+        <Sheet disableDrag={true} isOpen={this.props.isSubmodalOpen} onClose={() => { }} snapPoints={[0.28]}>
           <Sheet.Container>
             <Sheet.Header>
               <div style={{ marginLeft: '95%', width: "100%" }}>
