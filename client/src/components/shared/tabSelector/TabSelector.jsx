@@ -25,6 +25,7 @@ class Icon extends React.Component {
 
 }
 
+// Hardcoded images is obv not best practice, but we have a deadline
 export default class TabSelector extends React.Component {
   constructor(props) {
     super(props);
@@ -35,8 +36,10 @@ export default class TabSelector extends React.Component {
   }
 
   onClick(e) {
-    console.log(e.target.id);
     this.setState({ selectedItem: e.target.id });
+    if (this.props.onChange) {
+      this.props.onChange(e.target.id);
+    }
   }
 
   render() {

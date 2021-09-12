@@ -12,7 +12,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      locations: []
+      locations: [],
+      activePage: 0
     };
   }
 
@@ -32,17 +33,31 @@ class App extends React.Component {
     console.log('HELLO')
   }
 
+  pageSwitch(pageIdx) {
+    this.setState({ activePage: pageIdx });
+    console.log("Active Page: " + pageIdx);
+  }
+
+  renderPage() {
+    console.log(this.state.activePage, typeof this.state.activePage)
+    if (this.state.activePage === '0') {
+      return (<MapView />);
+    } else if (this.state.activePage === '1') {
+      return (<ManageSpots />);
+    } else {
+      return (<Profile type={'update'} />);
+    }
+  }
+
   render() {
     return (
 
       <div>
-        <TabSelector></TabSelector>
+        <TabSelector onChange={(pageIdx) => { this.pageSwitch(pageIdx); }}></TabSelector>
         <PageHeader title={'Spot Management'} isVisible={true} />
-        <MapView />
-        <Profile type={'registration'} />
-        <Profile type={'update'} />
-        <Login />
-        <ManageSpots />
+        {this.renderPage()}
+
+
       </div>
     )
   };
