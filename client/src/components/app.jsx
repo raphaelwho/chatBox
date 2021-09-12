@@ -13,7 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       locations: [],
-      activePage: 0
+      activePage: '0'
     };
   }
 
@@ -49,15 +49,27 @@ class App extends React.Component {
     }
   }
 
+  // TODO: REMOVE DUPLICATED CODE WHEN USING REACT ROUTER
+  getPageTitle() {
+    if (this.state.activePage === '0') {
+      return "Rent a Spot";
+    } else if (this.state.activePage === '1') {
+      return "Spot Management";
+    } else {
+      return "Profile";
+    }
+  }
+
   render() {
     return (
 
       <div>
         <TabSelector onChange={(pageIdx) => { this.pageSwitch(pageIdx); }}></TabSelector>
-        <PageHeader title={'Spot Management'} isVisible={true} />
+        <PageHeader title={this.getPageTitle()} isVisible={true} />
         {this.renderPage()}
 
-
+        {/* <Profile type={'update'} />
+        <Profile type={'regristration'} /> */}
       </div>
     )
   };

@@ -69,13 +69,12 @@ class ManageSpots extends React.Component {
   render() {
 
     let mainContent =
-      <div className='manage-spots-home'>
-        <PageHeader title={'Spot Management'} />
+      <div className='manage-spots-home' >
         <div className='my-spots-container'>
-          <SpotList spots={this.state.spots} handleSpotClick={this.handleSpotClick}/>
+          <SpotList spots={this.state.spots} handleSpotClick={this.handleSpotClick} />
         </div>
         <div className='button-container'>
-          <Button func={this.handleAddSpotClick} text={'Add Spot'}/>
+          <Button func={this.handleAddSpotClick} text={'Add Spot'} />
         </div>
       </div>;
 
