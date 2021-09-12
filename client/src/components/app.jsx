@@ -35,13 +35,13 @@ class App extends React.Component {
     return (
 
       <div>
-        {/* <PageHeader title={'Spot Management'} isVisible={true} /> */}
+        <PageHeader title={'Spot Management'} isVisible={true} />
         <MapView />
-        {/* <Profile type={'registration'} />
+        {/* <Profile type={'registration'} /> */}
         <Profile type={'update'} />
-        <Login /> */}
-        {/* <TxtBox label={'yourLabel'} /> */}
-        {/* <ManageSpots /> */}
+        <Login />
+        <TxtBox label={'yourLabel'} />
+        <ManageSpots />
       </div>
     )
   };
