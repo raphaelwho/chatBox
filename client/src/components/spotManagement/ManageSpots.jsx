@@ -61,7 +61,8 @@ class ManageSpots extends React.Component {
   resetHomePage() {
     this.setState({
       addSpot: false,
-      updateSpot: false
+      updateSpot: false,
+      currentSpotId: null
     }, this.getAllHostSpots(this.state.userId));
   }
 
