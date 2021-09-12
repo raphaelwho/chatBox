@@ -5,7 +5,7 @@ import './TabSelector.css';
 
 let Icon = ({ isActive, Path1, Path2 }) => {
   return (
-    <img style={{ width: "90%" }} src={isActive ? `${Path1}` : `${Path2}`}></img>
+    <img className="icon" src={isActive ? `${Path1}` : `${Path2}`}></img>
   );
 }
 
