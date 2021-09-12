@@ -28,6 +28,7 @@ export default class TabSelector extends React.Component {
           <Icon isActive={true} Path1={'./rentActive.png'} />
         </div>
       </div>
+
     );
   }
 }
