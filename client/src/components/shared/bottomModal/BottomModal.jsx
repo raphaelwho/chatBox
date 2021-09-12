@@ -33,7 +33,7 @@ export default class BottomModal extends React.Component {
   }
 
   render() {
-    // changed isOpen to this.props from this.state. this.state prevents re-rendering on prop changes
+    // changed isOpen to this.props from this.state in modal and submodal. using this.state as a prop prevents re-rendering on prop changes.
     return (
       <div>
         {/* Modal */}

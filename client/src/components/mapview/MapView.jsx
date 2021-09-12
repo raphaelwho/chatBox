@@ -2,6 +2,7 @@ import React from 'react';
 import Map from './Map.jsx';
 import Search from './Search.jsx';
 import BottomModal from '../shared/bottomModal/BottomModal.jsx';
+import ModalContent from './ModalContent.jsx';
 import fakeSpots from './fakeSpots.js';
 
 class MapView extends React.Component{
@@ -52,23 +53,21 @@ class MapView extends React.Component{
   }
 
   openBottomModal() {
-    console.log('open bottom modal called');
     this.setState({
       showBottomModal: true
     });
   }
 
   closeBottomModal() {
-    console.log('close bottom modal called');
     this.setState({
-      showBottomModal: false
-    })
+      showBottomModal: false,
+    });
   }
 
   selectSpot(spot) {
     this.setState({
       selectedSpot: spot
-    }, () => console.log('selected spot: ', this.state.selectedSpot));
+    });
   }
 
   render() {
@@ -79,16 +78,16 @@ class MapView extends React.Component{
         <BottomModal
           isModalOpen={this.state.showBottomModal}
           modalHeaderContent={(<div>this is the modal header</div>)}
-          modalContent={(<div>{this.state.selectedSpot.address}</div>)}
-          onModalClose={() => {
-            console.log('modal was closed');
-            this.closeBottomModal();
-          }}
+          modalContent={<ModalContent
+            address={this.state.selectedSpot.address}
+            price={this.state.selectedSpot.price}
+            photo={this.state.selectedSpot.photo_url}
+          />}
+          onModalClose={this.closeBottomModal}
         />
       </div>
     );
   }
-
 };
 
 export default MapView;

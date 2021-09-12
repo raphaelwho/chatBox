@@ -2,6 +2,7 @@ import React from 'react';
 import Geocode from "react-geocode";
 import TxtBox from '../shared/txtBox/TxtBox.jsx';
 import Picker from '../shared/Picker.jsx';
+import Button from '../shared/button/button.jsx';
 import { generateTimes, convertToUNIXTime } from './helpers.js';
 Geocode.setApiKey(process.env.GOOGLE_API);
 
@@ -72,7 +73,7 @@ class Search extends React.Component {
         <div>end date select will go here</div>
         <Picker label={'start time'} options={times} initialValue={times[0]} onChangeCB={this.handleStartTimeSelect}/>
         <Picker label={'end time'} options={times} initialValue={times[1]} onChangeCB={this.handleEndTimeSelect}/>
-        <button onClick={this.handleSearch}> FIND PARKING </button>
+        <Button text={'FIND PARKING'} func={this.handleSearch}/>
       </div>
     );
   }
