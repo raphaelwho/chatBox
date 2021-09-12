@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from '../shared/button/button.jsx';
 import './spotManagement.css';
+import TxtBox from '../shared/txtBox/TxtBox.jsx';
+import axios from 'axios';
 // no page header
 
 class UpdateSpot extends React.Component {
@@ -8,14 +10,28 @@ class UpdateSpot extends React.Component {
     super(props);
 
     this.state = {
-      address: this.props.address,
-      type: this.props.type,
-      price: this.props.type,
-      photo: this.props.photo
+      address: '',
+      type: '',
+      price: '',
+      photo: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
 
+  }
+
+  componentDidMount() {
+    axios.get(`http://localhost:3000/spot-details?id=${this.props.id}`)
+      .then((results) => {
+        console.log(results);
+        let data = results.data[0];
+        this.setState({
+          address: data.address,
+          type: data.type,
+          price: data.price,
+          photo: data.photo
+        })
+      })
   }
 
   handleSaveClick() {
@@ -46,10 +62,10 @@ class UpdateSpot extends React.Component {
 
           {/* address maybe should be static */}
           <label>Address</label>
-          <input type="text" id="address" value={this.state.address} className='add-spot-input' onChange={this.handleChange}></input>
+          <input type="text" id="address" value={this.state.address} className='txtBoxInput' onChange={this.handleChange}></input>
           <label>Type</label>
           {/* make select default value match this.props.type initially */}
-          <select className='add-spot-select' id='type' onChange={this.handleChange}>
+          <select className='txtBoxInput add-spot-select' id='type' onChange={this.handleChange}>
             <option value='driveway'>Driveway</option>
             <option value='garage'>Garage</option>
             <option value='carport'>Carport</option>
@@ -57,11 +73,13 @@ class UpdateSpot extends React.Component {
             <option value='outdoor'>Outdoor</option>
           </select>
           <label>Price</label>
-          <input type='text' id='price' value={this.state.price} className='add-spot-input' onChange={this.handleChange}></input>
+          <input type='text' id='price' value={this.state.price} className='txtBoxInput' onChange={this.handleChange}></input>
       </div>
+
       <div className='button-container'>
-        <Button func={this.handleSaveClick} text={'Add Spot'} />
+        <Button func={this.handleSaveClick} text={'Save'} />
       </div>
+
     </div>
     )
 
