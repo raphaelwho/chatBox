@@ -9,8 +9,8 @@ class MapView extends React.Component{
     super(props);
     this.state = {
       center: { // the default starting location of the map // TODO: get user's location
-        lat: 41.3851,
-        lng: 2.1734
+        lat: 37.7749,
+        lng: -122.4194
       },
       reservationStartTime: null, // to be passed to modal view
       reservationEndTime: null, // to be passed to modal view
