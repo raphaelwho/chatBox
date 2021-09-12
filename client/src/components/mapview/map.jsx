@@ -19,6 +19,7 @@ class MapContainer extends React.Component {
   onClick = (item) => {
     console.log('marker: ', item)
     this.setState({selected: item})
+    this.props.openBottomModal();
   }
 
   onClose = () => {

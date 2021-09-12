@@ -21,6 +21,7 @@ class MapView extends React.Component{
     };
     this.getFreeSpots = this.getFreeSpots.bind(this);
     this.getFreeSpotsAndUpdate = this.getFreeSpotsAndUpdate.bind(this);
+    this.openBottomModal = this.openBottomModal.bind(this);
   }
 
   getFreeSpots(lat, lng, start, end) {
@@ -47,10 +48,17 @@ class MapView extends React.Component{
       })
   }
 
+  openBottomModal() {
+    console.log('open bottom modal called');
+    this.setState({
+      showBottomModal: true
+    });
+  }
+
   render() {
     return (
       <div>
-        <Map center={this.state.center} spots={this.state.spots}/>
+        <Map center={this.state.center} spots={this.state.spots} openBottomModal={this.openBottomModal}/>
         <Search getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}/>
         <BottomModal
           isModalOpen={this.state.showBottomModal}

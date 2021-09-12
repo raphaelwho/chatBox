@@ -12,7 +12,7 @@ import Sheet from 'react-modal-sheet';
 // onSubmodalClose -> A function which executes when the main modal is closed
 
 // SAMPLE CASE:
-/*        
+/*
 <BottomModal
   isModalOpen={true}
   isSubmodalOpen={true}
@@ -20,7 +20,7 @@ import Sheet from 'react-modal-sheet';
   submodalContent={<h1>Test2</h1>}
   onModalClose={() => { console.log("Attempted to close main ") }}
   onSubmodalClose={() => { console.log("Closed submodal") }}
-/> 
+/>
   */
 export default class BottomModal extends React.Component {
   constructor(props) {
@@ -37,7 +37,7 @@ export default class BottomModal extends React.Component {
     return (
       <div>
         {/* Modal */}
-        <Sheet isOpen={this.state.isModalOpen} onClose={() => { this.props.onModalClose(); }} snapPoints={[0.33, 0.1]}>
+        <Sheet isOpen={this.props.isModalOpen} onClose={() => { this.props.onModalClose(); }} snapPoints={[0.33, 0.1]}>
           <Sheet.Container>
             <Sheet.Header>{this.props.modalHeaderContent}</Sheet.Header>.
             <Sheet.Content>{this.props.modalContent || <h1>No Content Present</h1>}</Sheet.Content>
