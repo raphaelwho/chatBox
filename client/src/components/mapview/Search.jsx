@@ -43,6 +43,7 @@ class Search extends React.Component {
     .then((response) => {
       const { lat, lng } = response.results[0].geometry.location;
       // console.log('Matts\'s house:', lat, lng);
+      // get free spots near the center, center the map, render the spots...
       this.props.reCenterMap({
         lat: lat,
         lng: lng

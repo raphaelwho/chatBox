@@ -1,6 +1,7 @@
 import React from 'react';
 import Map from './Map.jsx';
 import Search from './Search.jsx';
+import BottomModal from '../shared/bottomModal/BottomModal.jsx';
 import fakeSpots from './fakeSpots.js';
 
 class MapView extends React.Component{
@@ -28,11 +29,23 @@ class MapView extends React.Component{
     // get matching/available spots from server
   }
 
+  handleSearch() {
+    // getFreeSpots()
+    // then
+    //
+  }
+
   render() {
     return (
       <div>
         <Map center={this.state.center} spots={this.state.spots}/>
         <Search reCenterMap={this.reCenterMap}/>
+        <BottomModal
+          isModalOpen={true}
+          modalHeaderContent={(<div>this is the modal header</div>)}
+          modalContent={(<div>test</div>)}
+          onModalClose={() => console.log('modal was closed')}
+        />
       </div>
     );
   }
