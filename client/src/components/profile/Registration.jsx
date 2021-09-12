@@ -80,7 +80,7 @@ class Registration extends React.Component {
         <form onSubmit = {this.submit.bind(this)} className="registrationContainer">
 
           <label>Username</label>
-          <input required type="text" id="username" className="registrationInput" value ={this.state.username} onChange={this.handleChange.bind(this)} required ></input>
+          <input required type="text" id="username" className="registrationInput" value ={this.state.username} onChange={this.handleChange.bind(this)} ></input>
           <label>Password</label>
           <input required type="text" id="password" className="registrationInput" value ={this.state.password} onChange={this.handleChange.bind(this)}></input>
           <label>Email</label>
