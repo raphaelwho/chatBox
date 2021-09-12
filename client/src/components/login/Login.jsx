@@ -2,9 +2,9 @@ import React from 'react';
 import './Login.css';
 import LoginBox from './LoginBox.jsx';
 import Profile from '../profile/Profile.jsx';
-// import Registration from '../shared/profile/Registration.jsx';
-// import MapContainer from '../booking/map.jsx';
+import MapView from '../mapview/MapView.jsx';
 import 'regenerator-runtime/runtime';
+import { Router } from 'react-router';
 const axios = require('axios');
 
 class Login extends React.Component {
@@ -35,6 +35,7 @@ class Login extends React.Component {
   }
 
   async login() {
+    event.preventDefault();
     // console.log("name", document.getElementById("username").value);
     const data = {
       username: this.state.username,
@@ -50,7 +51,7 @@ class Login extends React.Component {
           newState = {
             username: '',
             password: '',
-            message: 'Not a existing user! Try again!'
+            message: 'Not an existing user! Try again!'
           }
         // } else if (result.data === 'successLogin') {
         } else if (result.data.user_id) {
@@ -83,6 +84,11 @@ class Login extends React.Component {
   }
 
   render() {
+
+    // return  (
+    //   <Route path="/login" component={Profile}/>
+    // )
+
     if (this.state.showLogin) {
       return (
         <div id='background'>
@@ -90,22 +96,22 @@ class Login extends React.Component {
             <div id='name'>
               GALILEO
             </div>
-            <LoginBox login={this.login.bind(this)} register={this.toRegister.bind(this)} handleChange={this.handleChange.bind(this)} username={this.state.username} password={this.state.password} placeholder={this.state.placeholder}/>
+            <LoginBox login={this.login.bind(this)} register={this.toRegister.bind(this)} handleChange={this.handleChange.bind(this)} username={this.state.username} password={this.state.password} placeholder={this.state.placeholder} message={this.state.message} />
           </div>
         </div>
       )
     } else if (this.state.toRegister) {
       return (
-        // <div>Register</div>
         <Profile type={'registration'} />
-        // <Registration btn={'Finish Registration'} />
-      );
+        );
+        // <Route path="/login" component={Profile}/>
     } else {
       return (
-        <div>Login success! Let's search parking spot!</div>
-        // <MapContainer locations={this.props.locations} />
+        // <div>Login success! Let's search parking spot!</div>
+        <MapView />
       );
     }
+
   }
 }
 
