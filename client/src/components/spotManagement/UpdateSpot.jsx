@@ -41,18 +41,20 @@ class UpdateSpot extends React.Component {
     let options = this.state;
     console.log(options);
     axios.put('http://localhost:3000/update-spot-details', options)
-      .then(() => {
+      .then( async () => {
         console.log('success updating');
         // maybe not necessary
-        this.setState({
+        await this.setState({
           address: '',
           type: '',
           price: '',
           photo: ''
         });
+        return;
       })
       .then(() => {
         // update parent state updateSpot to null
+        this.props.resetHomePage();
         // jump back to manage spot home - in that case must elevate this func to homepage
       })
       .catch((err) => {

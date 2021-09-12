@@ -2,6 +2,8 @@ import React from 'react';
 import Button from '../shared/button/button.jsx';
 import axios from 'axios';
 import './spotManagement.css';
+import Geocode from "react-geocode";
+// Geocode.setApiKey(process.env.GOOGLE_API);
 // no page header
 
 class AddSpot extends React.Component {
@@ -13,36 +15,45 @@ class AddSpot extends React.Component {
       type: '',
       price: '',
       photo: '',
-      userId: this.props.userId
+      hostId: this.props.id
     };
 
     this.handleChange = this.handleChange.bind(this);
-
+    this.handleConfirmClick = this.handleConfirmClick.bind(this);
   }
 
   handleConfirmClick() {
     // post spot to server/db
     // update spot to server/db
     let options = this.state;
-    console.log(options);
-    axios.put('http://localhost:3000/add-spot', options)
-      .then(() => {
-        console.log('success updating');
-        // maybe not necessary
-        this.setState({
-          address: '',
-          type: '',
-          price: '',
-          photo: '',
-        });
-      })
-      .then(() => {
-        // update parent state updateSpot to null
-        // jump back to manage spot home - in that case must elevate this func to homepage
-      })
-      .catch((err) => {
-        console.log('error updating', err);
-      })
+
+    Geocode.fromAddress(this.state.address)
+    .then((response) => {
+      const { lat, lng } = response.results[0].geometry.location;
+      // console.log('Matts\'s house:', lat, lng);
+      options.lat = lat;
+      options.long = lng;
+      console.log(options);
+      return axios.post('http://localhost:3000/add-spot', options)
+    })
+    .then( async () => {
+      console.log('success adding');
+      // maybe not necessary
+      await this.setState({
+        address: '',
+        type: '',
+        price: '',
+        photo: '',
+      });
+      return;
+    })
+    .then(() => {
+      this.props.resetHomePage();
+    })
+    .catch((err) => {
+      console.log('error adding', err);
+    })
+
     // jump back to manage spot home - in that case must elevate this func to homepage
   }
 

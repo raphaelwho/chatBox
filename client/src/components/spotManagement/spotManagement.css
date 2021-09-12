@@ -110,12 +110,14 @@ body {
   align-items: center;
   padding: 10px;
   margin-bottom: 15px;
+
 }
 
 .spot-card-info {
   font-size: 2em;
-  margin-right: 300px;
+  margin-right: 40px;
   margin-left: 40px;
+  width: 40%;
 }
 
 .spot-list {

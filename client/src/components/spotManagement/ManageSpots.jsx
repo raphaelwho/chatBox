@@ -23,6 +23,7 @@ class ManageSpots extends React.Component {
     this.handleSpotClick = this.handleSpotClick.bind(this);
     this.handleAddSpotClick = this.handleAddSpotClick.bind(this);
     this.getAllHostSpots = this.getAllHostSpots.bind(this);
+    this.resetHomePage = this.resetHomePage.bind(this);
   }
 
   componentDidMount() {
@@ -57,21 +58,12 @@ class ManageSpots extends React.Component {
     });
   }
 
-  handleSaveClick() {
-    // update spot to server/db
-    // jump back to manage spot home - in that case must elevate this func to homepage
-
-    // pass as props to UpdateSpot
+  resetHomePage() {
+    this.setState({
+      addSpot: false,
+      updateSpot: false
+    }, this.getAllHostSpots(this.state.userId));
   }
-
-  handleConfirmClick() {
-    // post spot to server/db
-    // jump back to manage spot home - in that case must elevate this func to homepage
-
-    // pass as props to AddSpot
-  }
-
-
 
   render() {
 
@@ -87,10 +79,10 @@ class ManageSpots extends React.Component {
       </div>;
 
     if (this.state.addSpot) {
-      mainContent = <AddSpot userId={this.state.userId} />
+      mainContent = <AddSpot resetHomePage={this.resetHomePage} id={this.state.userId} />
     }
     if (this.state.updateSpot) {
-      mainContent = <UpdateSpot id={this.state.currentSpotId} />
+      mainContent = <UpdateSpot resetHomePage={this.resetHomePage} id={this.state.currentSpotId} />
     }
 
     return (
