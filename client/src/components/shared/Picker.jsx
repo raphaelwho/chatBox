@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function Picker() {
-  const [selectedOption, setSelectedOption] = useState(null);
+export default function Picker({ label, options, initialValue, onChangeCB = () => { } }) {
+  const [selectedOption, setSelectedOption] = useState(initialValue);
 
   function handleSelectChange(event) {
-    setSelectedClient(event.target.value);
-  }
+    setSelectedOption(event.target.value);
+  };
+
+  useEffect(() => {
+    onChangeCB(selectedOption);
+  }, [selectedOption]);
 
   return (
     <div className="Picker">
+      <label>{label}</label>
       <select value={selectedOption} onChange={handleSelectChange}
-      style = {{
-                backgroundColor:'white',
-                borderColor: "#CDC4F2",
-                borderWidth: '5px',
-                borderRadius: '4px'
-              }}>
-        <option value="grapefruit">Grapefruit</option>
-        <option value="lime">Lime</option>
-        <option selected value="coconut">Coconut</option>
-        <option value="mango">Mango</option>
+        style={{
+          backgroundColor: 'white',
+          borderColor: "#CDC4F2",
+          borderWidth: '3px',
+          borderRadius: '4px'
+        }}>
+        {options.map((option, index) => <option key={index} value={option}>{option}</option>)}
       </select>
-
     </div>
   );
 }
