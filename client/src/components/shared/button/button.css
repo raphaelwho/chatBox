@@ -1,10 +1,11 @@
 .button {
-  height: 40px;
-  width: 200px;;
-  border-radius: 5px;
+  height: 100px;
+  width: 70%;
+  margin: auto;
+  border-radius: 15px;
   border: none;
   font-weight: bold;
-  font-size: medium;
+  font-size: 2em;
 }
 
 .button:hover {

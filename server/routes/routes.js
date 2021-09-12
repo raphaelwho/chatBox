@@ -15,7 +15,7 @@ router.put('/update-my-profile', Profile.updateProfile);;
 router.get('/spots', getSpotsRoute);
 router.post('/login', getUser);
 router.get('/my-spots', Spot.getMySpots);
-router.get('/spot-details', Spot.addNewSpot);
+router.get('/spot-details', Spot.getSpotDetails);
 router.put('/update-spot-details', Spot.updateSpotDetails);
 router.post('/add-spot', Spot.addNewSpot);
 
