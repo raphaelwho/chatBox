@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from './Map.jsx';
+import Map from './map.jsx';
 import Search from './Search.jsx';
 import BottomModal from '../shared/bottomModal/BottomModal.jsx';
 import ModalContent from './ModalContent.jsx';
