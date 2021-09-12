@@ -5,7 +5,8 @@ import PageHeader from './shared/pageHeader/pageHeader.jsx';
 import './app.css';
 import MapView from './mapview/MapView.jsx';
 import BottomModal from './shared/bottomModal/BottomModal.jsx';
-import TabSelector from './shared/tabSelector/TabSelector.jsx';
+import ManageSpots from './spotManagement/ManageSpots.jsx';
+import TabSelector from './shared/tabSelector/TabSelector.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class App extends React.Component {
         <Profile type={'update'} />
         <Login />
         {/* <TxtBox label={'yourLabel'} /> */}
+        <ManageSpots />
       </div>
     )
   };
