@@ -31,19 +31,18 @@
 #booking-button-container {
   margin: auto;
   bottom: 0;
-  padding-top: 1vh;
 }
 
 #booking-spot-photo-container {
-  align-self: left;
   margin-top: auto;
   margin-bottom: auto;
+  align-self: left;
 }
 
 #booking-spot-address-container {
-  align-self: left;
   margin-top: auto;
   margin-bottom: auto;
+  align-self: left;
 }
 
 #booking-spot-photo {
@@ -54,9 +53,7 @@
 
 #booking-price-table {
   width: 90vw;
-  padding-top: 3vh;
-  padding-left: 10vw;
-  padding-right: 10vw;
+  padding: 3vh 10vw 0 10vw;
 }
 
 #booking-price-table td {
@@ -73,6 +70,5 @@
 
 #booking-policy-header {
   font-weight: bold;
-  padding-top: 3vh;
-  padding-bottom: 2vh;
+  padding: 3vh 0 2vh 0;
 }
