@@ -1,19 +1,22 @@
 const router = require('express').Router();
 const Profile = require('./controllers/Profile');
-const profileRequests = require('./controllers/profileRequests');
 const getSpotsRoute = require('./controllers/getSpots').getSpotsRoute;
+
 const profileRequests = require('./controllers/profileRequests');
-const {getUser} = require('./controllers/getUser');
+const { getUser } = require('./controllers/getUser');
+const Spot = require('./controllers/manageSpots')
+
+console.log(Spot);
 
 router.get('/profile', profileRequests.getProfile); // only for testing
 router.get('/my-profile/:user_id', Profile.getProfile);
-router.post('/create-account',Profile.createProfile);
-router.put('/update-my-profile',Profile.updateProfile);;
+router.post('/create-account', Profile.createProfile);
+router.put('/update-my-profile', Profile.updateProfile);;
 router.get('/spots', getSpotsRoute);
 router.post('/login', getUser);
-router.get('/my-spots', getMySpots);
-router.get('/spot-details', getSpotDetails);
-router.put('/update-spot-details', updateSpotDetails);
-router.post('/add-spot', addNewSpot);
+router.get('/my-spots', Spot.getMySpots);
+router.get('/spot-details', Spot.addNewSpot);
+router.put('/update-spot-details', Spot.updateSpotDetails);
+router.post('/add-spot', Spot.addNewSpot);
 
 module.exports = router;
