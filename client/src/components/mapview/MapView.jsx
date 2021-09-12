@@ -7,27 +7,20 @@ import fakeSpots from './fakeSpots.js';
 class MapView extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { // the default starting location of the map
-      center: {
+    this.state = {
+      center: { // the default starting location of the map // TODO: get user's location
         lat: 41.3851,
         lng: 2.1734
       },
-      reservationStartTime: null,
-      reservationEndTime: null,
-      reservationStartDate: null,
-      reservationEndDate: null,
-      spots: [],
+      reservationStartTime: null, // to be passed to modal view
+      reservationEndTime: null, // to be passed to modal view
+      reservationStartDate: null, // to be passed to modal view
+      reservationEndDate: null, // to be passed to modal view
+      spots: [], // passed to map component and rendered
       showBottomModal: false
     };
-    this.reCenterMap = this.reCenterMap.bind(this);
     this.getFreeSpots = this.getFreeSpots.bind(this);
     this.getFreeSpotsAndUpdate = this.getFreeSpotsAndUpdate.bind(this);
-  }
-
-  reCenterMap(newCenter) {
-    this.setState({
-      center: newCenter
-    });
   }
 
   getFreeSpots(lat, lng, start, end) {
@@ -47,7 +40,7 @@ class MapView extends React.Component{
           reservationEndTime: endTime,
           reservationStartDate: startDate,
           reservationEndDate: endDate
-        })
+        }, () => console.log(this.state));
       })
       .catch((err) => {
         console.log('ERROR: ', err);
@@ -58,7 +51,7 @@ class MapView extends React.Component{
     return (
       <div>
         <Map center={this.state.center} spots={this.state.spots}/>
-        <Search reCenterMap={this.reCenterMap} getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}/>
+        <Search getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}/>
         <BottomModal
           isModalOpen={this.state.showBottomModal}
           modalHeaderContent={(<div>this is the modal header</div>)}

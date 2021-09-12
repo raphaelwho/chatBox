@@ -2,7 +2,7 @@ import React from 'react';
 import Geocode from "react-geocode";
 import TxtBox from '../shared/txtBox/TxtBox.jsx';
 import Picker from '../shared/Picker.jsx';
-import { generateTimes } from './helpers.js';
+import { generateTimes, convertToUNIXTime } from './helpers.js';
 Geocode.setApiKey(process.env.GOOGLE_API);
 
 class Search extends React.Component {
@@ -12,8 +12,8 @@ class Search extends React.Component {
       address: '',
       startTime: '', // implement a default value - the nearest hour
       endTime: '', // implement a default value - nearest hour + 1
-      startDate: '',
-      endDate: '',
+      startDate: 'TODAY', // TODO
+      endDate: 'TODAY', // TODO
     };
     this.handleAddressInput = this.handleAddressInput.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -44,20 +44,15 @@ class Search extends React.Component {
     Geocode.fromAddress(this.state.address)  // convert the address to lat and lng
     .then((response) => {
       const { lat, lng } = response.results[0].geometry.location;
-      // console.log('Matts\'s house:', lat, lng);
-      // convert the start and end date to UNIX time?
       return {
         lat: lat,
         lng: lng
       }
-      // get free spots near the center, center the map, render the spots...
-      // this.props.reCenterMap({
-      //   lat: lat,
-      //   lng: lng
-      // });
     })
     .then((location) => {
-      this.props.getFreeSpotsAndUpdate(location.lat, location.lng)
+      const { startTime, endTime, startDate, endDate } = this.state;
+      convertToUNIXTime(startTime, endTime, startDate, endDate); // TODO: implement this function
+      this.props.getFreeSpotsAndUpdate(location.lat, location.lng, null, null, startTime, endTime, startDate, endDate);
     })
     .catch((err) => {
       console.error(err);
@@ -70,6 +65,8 @@ class Search extends React.Component {
     return (
       <div>
         <TxtBox label={'search'} handleInput={this.handleAddressInput}/>
+        <div>start date select will go here</div>
+        <div>end date select will go here</div>
         <Picker label={'start time'} options={times} initialValue={times[0]} onChangeCB={this.handleStartTimeSelect}/>
         <Picker label={'end time'} options={times} initialValue={times[1]} onChangeCB={this.handleEndTimeSelect}/>
         <button onClick={this.handleSearch}> FIND PARKING </button>
