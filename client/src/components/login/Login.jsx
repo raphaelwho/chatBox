@@ -2,10 +2,9 @@ import React from 'react';
 import './Login.css';
 import LoginBox from './LoginBox.jsx';
 import Profile from '../profile/Profile.jsx';
-// import Registration from '../shared/profile/Registration.jsx';
-// import MapContainer from '../booking/map.jsx';
 import MapView from '../mapview/MapView.jsx';
 import 'regenerator-runtime/runtime';
+import { Router } from 'react-router';
 const axios = require('axios');
 
 class Login extends React.Component {
@@ -36,6 +35,7 @@ class Login extends React.Component {
   }
 
   async login() {
+    event.preventDefault();
     // console.log("name", document.getElementById("username").value);
     const data = {
       username: this.state.username,
@@ -84,6 +84,11 @@ class Login extends React.Component {
   }
 
   render() {
+
+    // return  (
+    //   <Route path="/login" component={Profile}/>
+    // )
+
     if (this.state.showLogin) {
       return (
         <div id='background'>
@@ -97,16 +102,16 @@ class Login extends React.Component {
       )
     } else if (this.state.toRegister) {
       return (
-        // <div>Register</div>
         <Profile type={'registration'} />
-        // <Registration btn={'Finish Registration'} />
-      );
+        );
+        // <Route path="/login" component={Profile}/>
     } else {
       return (
         // <div>Login success! Let's search parking spot!</div>
         <MapView />
       );
     }
+
   }
 }
 
