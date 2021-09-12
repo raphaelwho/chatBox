@@ -57,6 +57,22 @@ class ManageSpots extends React.Component {
     });
   }
 
+  handleSaveClick() {
+    // update spot to server/db
+    // jump back to manage spot home - in that case must elevate this func to homepage
+
+    // pass as props to UpdateSpot
+  }
+
+  handleConfirmClick() {
+    // post spot to server/db
+    // jump back to manage spot home - in that case must elevate this func to homepage
+
+    // pass as props to AddSpot
+  }
+
+
+
   render() {
 
     let mainContent =
@@ -71,7 +87,7 @@ class ManageSpots extends React.Component {
       </div>;
 
     if (this.state.addSpot) {
-      mainContent = <AddSpot />
+      mainContent = <AddSpot userId={this.state.userId} />
     }
     if (this.state.updateSpot) {
       mainContent = <UpdateSpot id={this.state.currentSpotId} />

@@ -13,11 +13,12 @@ class UpdateSpot extends React.Component {
       address: '',
       type: '',
       price: '',
-      photo: ''
+      photo: '',
+      spot_id: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
-
+    this.handleSaveClick = this.handleSaveClick.bind(this);
   }
 
   componentDidMount() {
@@ -29,14 +30,35 @@ class UpdateSpot extends React.Component {
           address: data.address,
           type: data.type,
           price: data.price,
-          photo: data.photo
+          photo: data.photo || '',
+          spotId: this.props.id
         })
       })
   }
 
   handleSaveClick() {
     // update spot to server/db
-    // jump back to manage spot home - in that case must elevate this func to homepage
+    let options = this.state;
+    console.log(options);
+    axios.put('http://localhost:3000/update-spot-details', options)
+      .then(() => {
+        console.log('success updating');
+        // maybe not necessary
+        this.setState({
+          address: '',
+          type: '',
+          price: '',
+          photo: ''
+        });
+      })
+      .then(() => {
+        // update parent state updateSpot to null
+        // jump back to manage spot home - in that case must elevate this func to homepage
+      })
+      .catch((err) => {
+        console.log('error updating', err);
+      })
+
   }
 
   handleChange() {
@@ -62,7 +84,7 @@ class UpdateSpot extends React.Component {
 
           {/* address maybe should be static */}
           <label>Address</label>
-          <input type="text" id="address" value={this.state.address} className='txtBoxInput' onChange={this.handleChange}></input>
+          <input type="text" id="address" value={this.state.address} className='txtBoxInput' onChange={this.handleChange} disabled></input>
           <label>Type</label>
           {/* make select default value match this.props.type initially */}
           <select className='txtBoxInput add-spot-select' id='type' onChange={this.handleChange}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../shared/button/button.jsx';
+import axios from 'axios';
 import './spotManagement.css';
 // no page header
 
@@ -11,7 +12,8 @@ class AddSpot extends React.Component {
       address: '',
       type: '',
       price: '',
-      photo: ''
+      photo: '',
+      userId: this.props.userId
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,6 +22,27 @@ class AddSpot extends React.Component {
 
   handleConfirmClick() {
     // post spot to server/db
+    // update spot to server/db
+    let options = this.state;
+    console.log(options);
+    axios.put('http://localhost:3000/add-spot', options)
+      .then(() => {
+        console.log('success updating');
+        // maybe not necessary
+        this.setState({
+          address: '',
+          type: '',
+          price: '',
+          photo: '',
+        });
+      })
+      .then(() => {
+        // update parent state updateSpot to null
+        // jump back to manage spot home - in that case must elevate this func to homepage
+      })
+      .catch((err) => {
+        console.log('error updating', err);
+      })
     // jump back to manage spot home - in that case must elevate this func to homepage
   }
 
