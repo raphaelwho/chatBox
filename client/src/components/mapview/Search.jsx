@@ -11,7 +11,9 @@ class Search extends React.Component {
     this.state = {
       address: '',
       startTime: '', // implement a default value - the nearest hour
-      endTime: '' // implement a default value - nearest hour + 1
+      endTime: '', // implement a default value - nearest hour + 1
+      startDate: '',
+      endDate: '',
     };
     this.handleAddressInput = this.handleAddressInput.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -39,15 +41,23 @@ class Search extends React.Component {
   }
 
   handleSearch() {
-    Geocode.fromAddress(this.state.address)
+    Geocode.fromAddress(this.state.address)  // convert the address to lat and lng
     .then((response) => {
       const { lat, lng } = response.results[0].geometry.location;
       // console.log('Matts\'s house:', lat, lng);
-      // get free spots near the center, center the map, render the spots...
-      this.props.reCenterMap({
+      // convert the start and end date to UNIX time?
+      return {
         lat: lat,
         lng: lng
-      });
+      }
+      // get free spots near the center, center the map, render the spots...
+      // this.props.reCenterMap({
+      //   lat: lat,
+      //   lng: lng
+      // });
+    })
+    .then((location) => {
+      this.props.getFreeSpotsAndUpdate(location.lat, location.lng)
     })
     .catch((err) => {
       console.error(err);
