@@ -12,6 +12,8 @@ app.use(express.urlencoded( {extended: true} ))
 const servingPath = path.join(__dirname, '..', 'client', 'dist');
 app.use(express.static(servingPath));
 
+app.use(bodyParser.json());
+
 app.use('/', router)
 
 module.exports.app = app;
