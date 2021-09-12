@@ -88,7 +88,7 @@ class Registration extends React.Component {
           <label>First Name</label>
           <input required type="text" id="first_name" className="registrationInput" value ={this.state.first_name} onChange={this.handleChange.bind(this)}></input>
           <label>Last Name</label>
-          <input type="text" id="last_name" className="registrationInput" value ={this.state.last_name} onChange={this.handleChange.bind(this)} ></input>
+          <input required type="text" id="last_name" className="registrationInput" value ={this.state.last_name} onChange={this.handleChange.bind(this)} ></input>
           <input type="submit" className="registrationBtn" value={this.props.btn}/>
 
         </form>
