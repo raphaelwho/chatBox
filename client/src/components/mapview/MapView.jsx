@@ -22,6 +22,7 @@ class MapView extends React.Component{
     this.getFreeSpots = this.getFreeSpots.bind(this);
     this.getFreeSpotsAndUpdate = this.getFreeSpotsAndUpdate.bind(this);
     this.openBottomModal = this.openBottomModal.bind(this);
+    this.closeBottomModal = this.closeBottomModal.bind(this);
   }
 
   getFreeSpots(lat, lng, start, end) {
@@ -55,6 +56,13 @@ class MapView extends React.Component{
     });
   }
 
+  closeBottomModal() {
+    console.log('close bottom modal called');
+    this.setState({
+      showBottomModal: false
+    })
+  }
+
   render() {
     return (
       <div>
@@ -64,7 +72,10 @@ class MapView extends React.Component{
           isModalOpen={this.state.showBottomModal}
           modalHeaderContent={(<div>this is the modal header</div>)}
           modalContent={(<div>test</div>)}
-          onModalClose={() => console.log('modal was closed')}
+          onModalClose={() => {
+            console.log('modal was closed');
+            this.closeBottomModal();
+          }}
         />
       </div>
     );
