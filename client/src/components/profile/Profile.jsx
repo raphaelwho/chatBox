@@ -4,31 +4,28 @@ import Registration from './Registration.jsx';
 
 import $ from 'jquery';
 
-const Profile = ({type}) => {
+const Profile = ({ type }) => {
 
   let btn, handleUser, addUser, getUser, updateUser;
 
   addUser = (data) => {
-
-
-    console.log('new',data)
-
+    console.log('new', data)
     $.ajax({
       url: 'http://localhost:3000/create-account',
       type: 'POST',
       data: data,
       success: (res) => {
-        if (res.rowCount===1){
-          console.log("success",res);
+        if (res.rowCount === 1) {
+          console.log("success", res);
           alert("success");
-        }else if (res.rowCount===0) {
+        } else if (res.rowCount === 0) {
           console.log("Uesrname already exists");
           alert("Uesrname already exists");
         }
 
       },
       error: (err) => {
-        console.log('error',err);
+        console.log('error', err);
       }
     })
     console.log('Registration! AddUser!');
@@ -37,7 +34,7 @@ const Profile = ({type}) => {
 
   getUser = () => {
     console.log('Update! GetUser!');
-    let user_id = localStorage.getItem('user_id')||1;
+    let user_id = localStorage.getItem('user_id') || 1;
     // axios.get, db.getUser
     $.ajax({
       url: `http://localhost:3000/my-profile/${user_id}`,
@@ -47,31 +44,31 @@ const Profile = ({type}) => {
 
       },
       error: (err) => {
-        console.log('error',err);
+        console.log('error', err);
       }
     })
   }
 
   updateUser = (data) => {
-    console.log('update',data)
-    let user_id = localStorage.getItem('user_id')||1;
+    console.log('update', data)
+    let user_id = localStorage.getItem('user_id') || 1;
     $.ajax({
       url: `http://localhost:3000/update-my-profile`,
       type: 'PUT',
-      data: {'user_id':user_id, ...data},
+      data: {user_id, ...data},
       success: (res) => {
-        console.log('rws',res)
-        if (res.rowCount===1){
-          console.log("success",res);
+        console.log('rws', res)
+        if (res.rowCount === 1) {
+          console.log("success", res);
           alert("success");
-        }else if (res.rowCount===0) {
+        } else if (res.rowCount === 0) {
           console.log("Uesrname already exists");
           alert("Uesrname already exists");
         }
 
       },
       error: (err) => {
-        console.log('error',err);
+        console.log('error', err);
       }
     })
     console.log('Update! UpdateUser!');
@@ -92,7 +89,7 @@ const Profile = ({type}) => {
 
   return (
     // <Registration btn={btn} addUser={addUser} getUser={getUser} updateUser={updateUser}/>
-    <Registration btn={btn} handleUser={handleUser} updateUser={updateUser}/>
+    <Registration btn={btn} handleUser={handleUser} updateUser={updateUser} />
   );
 }
 
