@@ -37,14 +37,14 @@ class App extends React.Component {
     return (
 
       <div>
-        <TabSelector></TabSelector>
-        <PageHeader title={"TEMP TITLE"} isVisible={true} />
+        {/* <TabSelector></TabSelector>
+        <PageHeader title={"TEMP TITLE"} isVisible={true} /> */}
         <MapView />
-        <ManageSpots />
+        {/* <ManageSpots />
 
         <Profile type={'update'} />
         <Profile type={'regristration'} />
-        <Login></Login>
+        <Login></Login> */}
       </div>
     )
   };
