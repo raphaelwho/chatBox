@@ -6,12 +6,13 @@ import './app.css';
 import MapView from './mapview/MapView.jsx';
 import BottomModal from './shared/bottomModal/BottomModal.jsx';
 import ManageSpots from './spotManagement/ManageSpots.jsx';
+import TabSelector from './shared/tabSelector/TabSelector.jsx'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      locations: []
+      locations: [],
     };
   }
 
@@ -31,17 +32,19 @@ class App extends React.Component {
     console.log('HELLO')
   }
 
+
   render() {
     return (
 
       <div>
-        <PageHeader title={'Spot Management'} isVisible={true} />
+        <TabSelector></TabSelector>
+        <PageHeader title={"TEMP TITLE"} isVisible={true} />
         <MapView />
-        <Profile type={'registration'} />
-        <Profile type={'update'} />
-        <Login />
-        {/* <TxtBox label={'yourLabel'} /> */}
         <ManageSpots />
+
+        <Profile type={'update'} />
+        <Profile type={'regristration'} />
+        <Login></Login>
       </div>
     )
   };

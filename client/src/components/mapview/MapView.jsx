@@ -3,7 +3,7 @@ import Map from './Map.jsx';
 import Search from './Search.jsx';
 import fakeSpots from './fakeSpots.js';
 
-class MapView extends React.Component{
+class MapView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,9 +30,9 @@ class MapView extends React.Component{
 
   render() {
     return (
-      <div>
-        <Map center={this.state.center} spots={this.state.spots}/>
-        <Search reCenterMap={this.reCenterMap}/>
+      <div className="map-view" style={{ width: "100vw", height: "100vh" }}>
+        <Map center={this.state.center} spots={this.state.spots} />
+        {/* <Search reCenterMap={this.reCenterMap} /> */}
       </div>
     );
   }

@@ -5,7 +5,11 @@ import './pageHeader.css';
 const PageHeader = ({ title, isVisible = true }) => {
 
   if (isVisible) {
-    return (<div className="page-header">{title.toUpperCase()}<hr className="page-header-hr" /></div>);
+    return (
+      <div className="page-header">
+        <h1 style={{ fontSize: "2vh" }}>{title.toUpperCase()}</h1>
+      </div>
+    );
   } else {
     return (<div></div>);
   }
