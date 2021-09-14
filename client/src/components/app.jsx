@@ -13,7 +13,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       locations: [],
-      activePage: '0'
     };
   }
 
@@ -33,43 +32,18 @@ class App extends React.Component {
     console.log('HELLO')
   }
 
-  pageSwitch(pageIdx) {
-    this.setState({ activePage: pageIdx });
-    console.log("Active Page: " + pageIdx);
-  }
-
-  renderPage() {
-    console.log(this.state.activePage, typeof this.state.activePage)
-    if (this.state.activePage === '0') {
-      return (<MapView />);
-    } else if (this.state.activePage === '1') {
-      return (<ManageSpots />);
-    } else {
-      return (<Profile type={'update'} />);
-    }
-  }
-
-  // TODO: REMOVE DUPLICATED CODE WHEN USING REACT ROUTER
-  getPageTitle() {
-    if (this.state.activePage === '0') {
-      return "Rent a Spot";
-    } else if (this.state.activePage === '1') {
-      return "Spot Management";
-    } else {
-      return "Profile";
-    }
-  }
 
   render() {
     return (
 
       <div>
-        <TabSelector onChange={(pageIdx) => { this.pageSwitch(pageIdx); }}></TabSelector>
-        <PageHeader title={this.getPageTitle()} isVisible={true} />
-        {this.renderPage()}
+        <TabSelector></TabSelector>
+        <PageHeader title={"TEMP TITLE"} isVisible={true} />
+        <MapView />
+        <ManageSpots />
 
-        {/* <Profile type={'update'} />
-        <Profile type={'regristration'} /> */}
+        <Profile type={'update'} />
+        <Profile type={'regristration'} />
       </div>
     )
   };
