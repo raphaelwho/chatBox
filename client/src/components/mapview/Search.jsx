@@ -20,6 +20,7 @@ class Search extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.handleStartTimeSelect = this.handleStartTimeSelect.bind(this);
     this.handleEndTimeSelect = this.handleEndTimeSelect.bind(this);
+    console.log(process.env.GOOGLE_API)
   }
 
   handleAddressInput(e) {
