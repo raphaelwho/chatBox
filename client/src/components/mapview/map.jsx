@@ -35,12 +35,11 @@ class MapContainer extends React.Component {
           center={this.props.center}
           zoom={16}
         >
-          { /* Child components, such as markers, info windows, etc. */}
           {
             this.props.spots.map((spot, index) => {
               return (
-                <Marker key={index} position={spot.location} onClick={() => this.onClick(spot)} />
-              )
+                <Marker key={index} icon={{url: './marker.png'}} position={spot.location} onClick={() => this.onClick(spot)} />
+              ) // need to update positioning of custom marker icon
             })
           }
           {
