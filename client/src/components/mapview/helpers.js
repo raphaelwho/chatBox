@@ -36,8 +36,10 @@ const convertToUNIXTime = (time, date) => {
   const hour = parseTime(time);
   const year = date.getFullYear();
   const month = date.getMonth();
-  const day = date.getDay();
+  const day = date.getDate();
   console.log('unix time values: ', 'hour:', hour, 'year:', year, 'month:', month, 'day:', day);
+  console.log('UNIX time: ', new Date(year, month, day, hour).getTime());
+  return new Date(year, month, day, hour).getTime();
 };
 
 export { generateTimes, convertToUNIXTime };

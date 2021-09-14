@@ -65,7 +65,7 @@ class Search extends React.Component {
       // convertToUNIXTime(startTime, endTime, startDate, endDate); // TODO: implement this function
       const startTimeUNIX = convertToUNIXTime(startTime, startDate);
       const endTimeUNIX = convertToUNIXTime(endTime, endDate);
-      this.props.getFreeSpotsAndUpdate(lat, lng, null, null, startTime, endTime, startDate, endDate);
+      this.props.getFreeSpotsAndUpdate(lat, lng, startTimeUNIX, endTimeUNIX, startTime, endTime, startDate, endDate);
     })
     .catch((err) => {
       console.error(err);
