@@ -29,7 +29,7 @@ class MapView extends React.Component {
   }
 
   getFreeSpots(lat, lng, start, end) {
-    return fetch(`http://localhost:3000/freespots?lat=${lat.toString()}&lng=${lng.toString()}&start=${start.toString()}&end=${end.toString()}`)
+    return fetch(`http://localhost:3000/spots?lat=${lat.toString()}&lng=${lng.toString()}&start=${start.toString()}&end=${end.toString()}`)
     .then((resp) => resp.json())
     .catch((err) => {
       console.log('ERROR GETTING SPOTS', err);
