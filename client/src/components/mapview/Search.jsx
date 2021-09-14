@@ -62,7 +62,6 @@ class Search extends React.Component {
     .then((response) => {
       const { lat, lng } = response.results[0].geometry.location;
       const { startTime, endTime, startDate, endDate } = this.state;
-      // convertToUNIXTime(startTime, endTime, startDate, endDate); // TODO: implement this function
       const startTimeUNIX = convertToUNIXTime(startTime, startDate);
       const endTimeUNIX = convertToUNIXTime(endTime, endDate);
       this.props.getFreeSpotsAndUpdate(lat, lng, startTimeUNIX, endTimeUNIX, startTime, endTime, startDate, endDate);

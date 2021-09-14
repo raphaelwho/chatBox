@@ -20,7 +20,7 @@ const generateTimes = () => {
   }
 };
 
-const parseTime = (timeString) => {
+const parseTime = (timeString) => { // convert the input time string to an hour number on a 24-hour scale
   let hrs = Number(timeString.split(':')[0]);
   if (hrs === 12 && timeString.indexOf('AM') > -1) {
       return 0;
@@ -32,13 +32,17 @@ const parseTime = (timeString) => {
 };
 
 const convertToUNIXTime = (time, date) => {
-  console.log('date: ', date);
   const hour = parseTime(time);
   const year = date.getFullYear();
   const month = date.getMonth();
   const day = date.getDate();
-  console.log('unix time values: ', 'hour:', hour, 'year:', year, 'month:', month, 'day:', day);
-  console.log('UNIX time: ', new Date(year, month, day, hour).getTime());
+  // date.setHours(hour); // use these lines if you don't want to create a new time object for some reason
+  // date.setMinutes(0);
+  // date.setSeconds(0);
+  // date.setMilliseconds(0);
+  // console.log('result after update to the existing date object: ', date.getTime());
+  console.log('human readable reservation time: ', new Date(year, month, day, hour));
+  console.log('UNIX time of reservation: ', new Date(year, month, day, hour).getTime());
   return new Date(year, month, day, hour).getTime();
 };
 
