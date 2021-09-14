@@ -34,11 +34,9 @@ class MapView extends React.Component {
     .catch((err) => {
       console.log('ERROR GETTING SPOTS', err);
     })
-    // return Promise.resolve(fakeSpots); // TODO replace with a GET to the server
   }
 
   getFreeSpotsAndUpdate(lat, lng, UNIXstart, UNIXend, startTime, endTime, startDate, endDate) {
-    console.log('data passed to getFreeSpotsAndUpdate: ', lat, lng, UNIXstart, UNIXend, startTime, endTime, startDate, endDate);
     this.getFreeSpots(lat, lng, UNIXstart, UNIXend)
       .then((spots) => {
         this.setState({
@@ -83,7 +81,7 @@ class MapView extends React.Component {
         <Search getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}/>
         <BottomModal
           isModalOpen={this.state.showBottomModal}
-          modalHeaderContent={(<div>this is the modal header</div>)}
+          modalHeaderContent={(<div>{`${this.state.spots.length} NEARBY SPOTS`}</div>)}
           modalContent={<ModalContent
             address={this.state.selectedSpot.address}
             price={this.state.selectedSpot.price}
