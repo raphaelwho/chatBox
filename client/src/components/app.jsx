@@ -44,6 +44,7 @@ class App extends React.Component {
 
         <Profile type={'update'} />
         <Profile type={'regristration'} />
+        <Login></Login>
       </div>
     )
   };
