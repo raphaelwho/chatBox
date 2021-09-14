@@ -21,12 +21,12 @@ const generateTimes = () => {
 };
 
 const parseTime = (timeString) => { // convert the input time string to an hour number on a 24-hour scale
-  let hrs = Number(timeString.split(':')[0]);
-  if (hrs === 12 && timeString.indexOf('AM') > -1) {
+  let hrs = Number(timeString.split(':')[0]); // get hours (reservations are made on the hour only)
+  if (hrs === 12 && timeString.indexOf('AM') > -1) { // edge case: it's 12:00AM --> return 0
       return 0;
   }
-  if (timeString.indexOf('PM') > - 1 && hrs < 12) {
-    hrs+=12
+  if (timeString.indexOf('PM') > - 1 && hrs < 12) { // if it's PM and after 12, add 12 to the hour to convert to 24 hr timescale
+    hrs+=12;
   }
   return hrs;
 };

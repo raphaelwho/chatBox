@@ -15,8 +15,8 @@ class Search extends React.Component {
       address: '',
       startTime: '', // implement a default value - the nearest hour
       endTime: '', // implement a default value - nearest hour + 1
-      startDate: new Date(), // TODO
-      endDate: new Date(), // TODO
+      startDate: new Date(),
+      endDate: new Date(),
     };
     this.handleAddressInput = this.handleAddressInput.bind(this);
     this.handleSearch = this.handleSearch.bind(this);

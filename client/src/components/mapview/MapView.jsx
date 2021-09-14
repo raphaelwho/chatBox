@@ -29,10 +29,16 @@ class MapView extends React.Component {
   }
 
   getFreeSpots(lat, lng, start, end) {
-    return Promise.resolve(fakeSpots); // TODO replace with a GET to the server
+    return fetch(`http://localhost:3000/freespots?lat=${lat.toString()}&lng=${lng.toString()}&start=${start.toString()}&end=${end.toString()}`)
+    .then((resp) => resp.json())
+    .catch((err) => {
+      console.log('ERROR GETTING SPOTS', err);
+    })
+    // return Promise.resolve(fakeSpots); // TODO replace with a GET to the server
   }
 
   getFreeSpotsAndUpdate(lat, lng, UNIXstart, UNIXend, startTime, endTime, startDate, endDate) {
+    console.log('data passed to getFreeSpotsAndUpdate: ', lat, lng, UNIXstart, UNIXend, startTime, endTime, startDate, endDate);
     this.getFreeSpots(lat, lng, UNIXstart, UNIXend)
       .then((spots) => {
         this.setState({
