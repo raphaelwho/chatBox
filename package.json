@@ -49,6 +49,7 @@
     "dotenv-webpack": "^7.0.3",
     "enzyme": "^3.11.0",
     "express": "^4.17.1",
+    "framer-motion": "^4.1.17",
     "jest": "^27.1.0",
     "jquery": "^3.6.0",
     "nodemon": "^2.0.12",
