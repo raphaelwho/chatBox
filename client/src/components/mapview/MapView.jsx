@@ -3,7 +3,6 @@ import Map from './map.jsx';
 import Search from './Search.jsx';
 import BottomModal from '../shared/bottomModal/BottomModal.jsx';
 import ModalContent from './ModalContent.jsx';
-import fakeSpots from './fakeSpots.js';
 
 class MapView extends React.Component {
   constructor(props) {
@@ -49,7 +48,7 @@ class MapView extends React.Component {
           reservationEndTime: endTime,
           reservationStartDate: startDate,
           reservationEndDate: endDate
-        }, () => console.log(this.state));
+        }, () => console.log('map component state after get request: ', this.state));
       })
       .catch((err) => {
         console.log('ERROR: ', err);

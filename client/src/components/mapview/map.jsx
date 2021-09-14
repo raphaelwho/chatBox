@@ -12,14 +12,12 @@ class MapContainer extends React.Component {
     super(props);
     this.state = {
       selected: {},
-      // locations: []
     }
   }
 
-  onClick = (item) => {
-    // console.log('marker: ', item);
-    this.setState({selected: item});
-    this.props.selectSpot(item);
+  onClick = (spot) => {
+    this.setState({selected: spot});
+    this.props.selectSpot(spot);
     this.props.openBottomModal();
   }
 
@@ -39,9 +37,9 @@ class MapContainer extends React.Component {
         >
           { /* Child components, such as markers, info windows, etc. */}
           {
-            this.props.spots.map((item, index) => {
+            this.props.spots.map((spot, index) => {
               return (
-                <Marker key={index} position={item.location} onClick={() => this.onClick(item)} />
+                <Marker key={index} position={spot.location} onClick={() => this.onClick(spot)} />
               )
             })
           }
