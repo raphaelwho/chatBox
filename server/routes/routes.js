@@ -5,7 +5,7 @@ const getSpotsRoute = require('./controllers/getSpots').getSpotsRoute;
 const profileRequests = require('./controllers/profileRequests');
 const { getUser } = require('./controllers/getUser');
 const Spot = require('./controllers/manageSpots')
-const myBookingsRoute = require('./controllers/myBookings.js').getMyBookingsRoute;
+const myBookingsRoute = require('./controllers/getMyBookings.js').getMyBookingsRoute;
 
 console.log(Spot);
 
