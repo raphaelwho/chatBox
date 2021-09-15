@@ -36,25 +36,24 @@ class MapContainer extends React.Component {
           zoom={16}
         >
           {
-            this.props.spots.map((spot, index) => {
+            this.props.spots.map((spot) => {
               return (
-                <Marker key={index} icon={{url: './marker.png'}} position={spot.location} onClick={() => this.onClick(spot)} />
+                <Marker key={spot.spot_id} icon={this.state.selected.spot_id === spot.spot_id ? {url: './markerActive.png'} : {url: './marker.png'}} position={spot.location} onClick={() => this.onClick(spot)} />
               ) // need to update positioning of custom marker icon
             })
           }
           {
-            this.state.selected.location &&
-            (
-              <InfoWindow
-                position={this.state.selected.location}
-                clickable={true}
-                onCloseClick={this.onClose}
-              >
-                <p>{this.state.selected.address}</p>
-              </InfoWindow>
-            )
+            // this.state.selected.location &&
+            // (
+            //   <InfoWindow
+            //     position={this.state.selected.location}
+            //     clickable={true}
+            //     onCloseClick={this.onClose}
+            //   >
+            //     <p>{this.state.selected.address}</p>
+            //   </InfoWindow>
+            // )
           }
-          <></>
         </GoogleMap>
       </LoadScript>
     )
