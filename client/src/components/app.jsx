@@ -40,11 +40,11 @@ class App extends React.Component {
         <TabSelector></TabSelector>
         <PageHeader title={"TEMP TITLE"} isVisible={true} />
         <MapView />
-        <ManageSpots />
 
         <Profile type={'update'} />
         <Profile type={'regristration'} />
         <Login></Login>
+        <ManageSpots />
       </div>
     )
   };

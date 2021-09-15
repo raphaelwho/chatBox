@@ -52,6 +52,10 @@ const updateSpotDetails = (req, res) => {
 
 }
 
+const uploadImage = (req, res) => {
+
+}
+
 module.exports = {
   getMySpots,
   addNewSpot,

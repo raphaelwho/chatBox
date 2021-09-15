@@ -21,6 +21,8 @@ class AddSpot extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleConfirmClick = this.handleConfirmClick.bind(this);
+    this.addPhotoUrl = this.addPhotoUrl.bind(this);
+    this.sendFile = this.sendFile.bind(this);
   }
 
   handleConfirmClick() {
@@ -62,16 +64,26 @@ class AddSpot extends React.Component {
     }, () => console.log('add spot state', this.state));
   }
 
-  addPhotoUrl(url) {
+  setPhotoUrl(url) {
     this.setState({
         photo: url
     });
   }
 
   sendFile() {
-    // send to server..?
+    let formData = new FormData();
+    formData.append('spotImage', this.state.file);
+    // send to server, add to s3
+    axios.post(`http://localhost:3000/uploadImage`, {body: formData})
+      .then((results) => {
+        // upon success response, get the photo url from s3 and add it to state
+        console.log('photo post results', results);
+        // this.setPhotoUrl(url);
+      })
+      .catch((err) => {
+        console.log('photo error upload');
+      })
   }
-
 
   render() {
 
@@ -79,14 +91,14 @@ class AddSpot extends React.Component {
     if (this.state.photo.length) {
       photoDisplay =
       <div className='add-spot-photo'>
-        <img src={this.state.photo}></img>
+        <img className='add-spot-image' src={this.state.photo}></img>
       </div>
     } else {
-      photoDisplay = <div className='add-spot-photo'>
-        <label for='photo' className='photo-upload'>Add Photo</label>
-        <input type="file" id='photo' className='photo-input' accept='image/png, image/jpeg' onChange={this.handleChange}></input>
-        {/* <button onClick={}>Add Photo</button> */}
-      </div>
+      photoDisplay =
+       <div className='add-spot-photo'>
+        <label for='file' className='photo-upload'>Add Photo</label>
+        <input type="file" id='file' className='photo-input' accept='image/png, image/jpeg' onChange={this.handleChange}></input>
+       </div>
     }
 
     return (
