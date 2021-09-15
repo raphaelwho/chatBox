@@ -4,6 +4,12 @@ import './spotManagement.css';
 
 const Spot = (props) => (
 
+  // let source;
+  // if props.photo = ''
+    // set src to be "https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg"
+  // else
+    // src = props.photo
+
   <div className='spot-card'>
     <div className='spot-photo'>
       {/* <img src={props.photo}></img> */}

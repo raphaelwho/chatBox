@@ -15,7 +15,8 @@ class AddSpot extends React.Component {
       type: '',
       price: '',
       photo: '',
-      hostId: this.props.id
+      hostId: this.props.id,
+      file: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -61,18 +62,38 @@ class AddSpot extends React.Component {
     }, () => console.log('add spot state', this.state));
   }
 
+  addPhotoUrl(url) {
+    this.setState({
+        photo: url
+    });
+  }
+
+  sendFile() {
+    // send to server..?
+  }
+
 
   render() {
+
+    let photoDisplay;
+    if (this.state.photo.length) {
+      photoDisplay =
+      <div className='add-spot-photo'>
+        <img src={this.state.photo}></img>
+      </div>
+    } else {
+      photoDisplay = <div className='add-spot-photo'>
+        <label for='photo' className='photo-upload'>Add Photo</label>
+        <input type="file" id='photo' className='photo-input' accept='image/png, image/jpeg' onChange={this.handleChange}></input>
+        {/* <button onClick={}>Add Photo</button> */}
+      </div>
+    }
 
     return (
       <div className='add-spot-home'>
 
        <div className='add-spot-form'>
-          <div className='add-spot-photo'>
-            {/* <label>Add Photo</label>
-            <input type="text" id='photo' className='add-spot-input' onChange={this.handleChange}></input> */}
-            <div>Add Photo</div>
-          </div>
+          {photoDisplay}
           <label>Address</label>
           <input type="text" id="address" className='txtBoxInput' onChange={this.handleChange}></input>
           <label>Type</label>
