@@ -1,4 +1,5 @@
-const model = require('../../models/manageSpots.js')
+const model = require('../../models/manageSpots.js');
+const fs = require('fs');
 
 const getMySpots = (req, res) => {
  // req.query.id = hostid
@@ -53,7 +54,25 @@ const updateSpotDetails = (req, res) => {
 }
 
 const uploadImage = (req, res) => {
+  // upload to s3
+  const fileContent = fs.readFileSync(req.query.file);
 
+  const params = {
+    Bucket: 'galileo-boc',
+    Key: `${Data.now()}`,
+    Body: fileContent
+  };
+
+  s3.upload(params, (err, data) => {
+    if (err) {
+      console.log('error adding img to s3', err);
+      // res.sendStatus(400)
+    } else {
+      console.log('success adding image')
+      // get url now?  data.Location stringify
+      // res.send(data.Location);
+    }
+  })
 }
 
 module.exports = {
