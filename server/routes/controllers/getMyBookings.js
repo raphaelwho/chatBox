@@ -7,7 +7,7 @@ const getMyBookingsRoute = (req, res) => {
       res.send(bookings)
     })
     .catch ((err) => {
-      console.log('CONTROLLER: ERRROR GETTING MY BOOKINGS FROM DB', err)
+      console.log('CONTROLLER: ERROR GETTING MY BOOKINGS FROM DB', err)
       res.sendStatus(500);
     })
 };
