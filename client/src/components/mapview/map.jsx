@@ -15,14 +15,10 @@ class MapContainer extends React.Component {
     }
   }
 
-  onClick = (spot) => {
+  onClick = (spot) => {  // this isn't bound because of that new experimental thing...
     this.setState({selected: spot});
     this.props.selectSpot(spot);
     this.props.openBottomModal();
-  }
-
-  onClose = () => {
-    this.setState({ selected: {} })
   }
 
   render() {
@@ -38,21 +34,14 @@ class MapContainer extends React.Component {
           {
             this.props.spots.map((spot) => {
               return (
-                <Marker key={spot.spot_id} icon={this.state.selected.spot_id === spot.spot_id ? {url: './markerActive.png'} : {url: './marker.png'}} position={spot.location} onClick={() => this.onClick(spot)} />
-              ) // need to update positioning of custom marker icon
+                <Marker
+                  key={spot.spot_id}
+                  icon={this.props.spotSelected && this.state.selected.spot_id === spot.spot_id ? {url: './markerActive.png'} : {url: './marker.png'}}
+                  position={spot.location}  // TODO update positioning of custom marker icon
+                  onClick={() => this.onClick(spot)}
+                />
+              )
             })
-          }
-          {
-            // this.state.selected.location &&
-            // (
-            //   <InfoWindow
-            //     position={this.state.selected.location}
-            //     clickable={true}
-            //     onCloseClick={this.onClose}
-            //   >
-            //     <p>{this.state.selected.address}</p>
-            //   </InfoWindow>
-            // )
           }
         </GoogleMap>
       </LoadScript>
