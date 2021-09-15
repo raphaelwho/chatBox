@@ -12,7 +12,7 @@ import Sheet from 'react-modal-sheet';
 // onSubmodalClose -> A function which executes when the main modal is closed
 
 // SAMPLE CASE:
-/*        
+/*
 <BottomModal
   isModalOpen={true}
   isSubmodalOpen={true}
@@ -20,24 +20,24 @@ import Sheet from 'react-modal-sheet';
   submodalContent={<h1>Test2</h1>}
   onModalClose={() => { console.log("Attempted to close main ") }}
   onSubmodalClose={() => { console.log("Closed submodal") }}
-/> 
+/>
   */
 export default class BottomModal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state = { // this state isn't needed, state is maintined in the parent component
       isModalOpen: this.props.isModalOpen || false,
       isSubmodalOpen: this.props.isSubmodalOpen || false,
     }
   }
 
   render() {
-
+    // changed isOpen to this.props from this.state in modal and submodal. using this.state as a prop prevents re-rendering on prop changes.
     return (
       <div>
         {/* Modal */}
-        <Sheet isOpen={this.state.isModalOpen} onClose={() => { this.props.onModalClose(); }} snapPoints={[0.33, 0.1]}>
+        <Sheet isOpen={this.props.isModalOpen} onClose={() => { this.props.onModalClose(); }} snapPoints={[0.33, 0.1]}>
           <Sheet.Container>
             <Sheet.Header>{this.props.modalHeaderContent}</Sheet.Header>.
             <Sheet.Content>{this.props.modalContent || <h1>No Content Present</h1>}</Sheet.Content>
@@ -45,7 +45,7 @@ export default class BottomModal extends React.Component {
         </Sheet >
 
         {/* Submodal */}
-        <Sheet disableDrag={true} isOpen={this.state.isSubmodalOpen} onClose={() => { }} snapPoints={[0.28]}>
+        <Sheet disableDrag={true} isOpen={this.props.isSubmodalOpen} onClose={() => { }} snapPoints={[0.28]}>
           <Sheet.Container>
             <Sheet.Header>
               <div style={{ marginLeft: '95%', width: "100%" }}>

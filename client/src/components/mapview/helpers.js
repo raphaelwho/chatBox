@@ -18,6 +18,10 @@ const generateTimes = () => {
     times.push(`${hour}:00 ${pm ? 'PM' : 'AM'}`);
     hour++;
   }
-}
+};
 
-export { generateTimes };
+const convertToUNIXTime = (startTime, endTime, startDate, endDate) => {
+  console.log('these values will be converted to UNIX time: ', startTime, endTime, startDate, endDate);
+};
+
+export { generateTimes, convertToUNIXTime };
