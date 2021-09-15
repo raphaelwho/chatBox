@@ -3,11 +3,11 @@ const models = require('../../models/index.js');
 const getMyBookingsRoute = (req, res) => {
   return models.getMyBookings()
     .then((bookings) => {
-      console.log('BOOKINGS CONTROLLER', bookings)
-      // res.send(bookings)
+      console.log('CONTROLLER: MY BOOKINGS', bookings)
+      res.send(bookings)
     })
     .catch ((err) => {
-      console.log('ERRRO GETTING BOOKINGS FROM DB IN CONTROLLER', err)
+      console.log('CONTROLLER: ERRROR GETTING MY BOOKINGS FROM DB', err)
       res.sendStatus(500);
     })
 };
