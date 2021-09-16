@@ -24,13 +24,11 @@ class AddSpot extends React.Component {
 
   handleConfirmClick() {
     // post spot to server/db
-    // update spot to server/db
     let options = this.state;
 
     Geocode.fromAddress(this.state.address)
     .then((response) => {
       const { lat, lng } = response.results[0].geometry.location;
-      // console.log('Matts\'s house:', lat, lng);
       options.lat = lat;
       options.long = lng;
       console.log(options);
