@@ -41,10 +41,8 @@ class App extends React.Component {
         <PageHeader title={"TEMP TITLE"} isVisible={true} />
         <MapView />
         <ManageSpots />
-
         <Profile type={'update'} />
-        <Profile type={'regristration'} />
-        <Login></Login>
+        <Login />
       </div>
     )
   };

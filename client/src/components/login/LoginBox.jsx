@@ -1,7 +1,5 @@
 import React from 'react';
 import style from './LoginBox.css'
-import Profile from '../profile/Profile.jsx';
-// import Registration from '../shared/profile/Registration.jsx';
 const axios = require('axios');
 
 class LoginBox extends React.Component {
