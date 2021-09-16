@@ -13,8 +13,8 @@ class Search extends React.Component {
     super(props);
     this.state = {
       address: '',
-      startTime: '', // implement a default value - the nearest hour
-      endTime: '', // implement a default value - nearest hour + 1
+      startTime: '', // TODO implement a default value - the nearest hour
+      endTime: '', // TODO implement a default value - nearest hour + 1
       startDate: new Date(),
       endDate: new Date(),
     };
