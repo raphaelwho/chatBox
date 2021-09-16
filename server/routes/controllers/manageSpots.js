@@ -62,12 +62,7 @@ const updateSpotDetails = (req, res) => {
 
 const uploadImage = (req, res) => {
   // upload to s3
-  // console.log(req);
-  // const fileContent = fs.readFileSync(req);
-
   const form = new multiparty.Form();
-
-  console.log(form);
 
   form.on('part', function(part) {
     const params = {
@@ -84,20 +79,13 @@ const uploadImage = (req, res) => {
       } else {
 
         console.log('success adding image', data)
-        // get url now?  data.Location stringify
+        // get url
         res.status(201);
         res.send(data.Location);
       }
     })
   });
-
   form.parse(req);
-  // const params = {
-  //   Bucket: 'galileo-boc',
-  //   Key: `${Date.now()}`,
-  //   Body: fileContent
-  // };
-
 }
 
 module.exports = {
