@@ -10,6 +10,11 @@ module.exports = {
     path: DIST_DIR,
   },
   devtool: 'inline-source-map',
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true
+ },
   plugins: [
     new Dotenv()
   ],

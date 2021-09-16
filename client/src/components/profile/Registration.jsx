@@ -4,6 +4,7 @@ import style from './Registration.css'
 import Button from '../shared/button/button.jsx';
 import Login from '../login/Login.jsx';
 import $ from 'jquery';
+import TabSelector from '../shared/tabSelector/TabSelector.jsx'
 
 class Registration extends React.Component {
   constructor(props) {
@@ -63,6 +64,10 @@ class Registration extends React.Component {
           <div className="backBtn">{'\u1438'} </div>
           <div className="backWord"> Back to Login</div>
         </div>
+      )
+    }else {
+      return (
+          <TabSelector/>
       )
     }
   }

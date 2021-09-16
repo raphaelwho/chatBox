@@ -30,6 +30,15 @@ CREATE TABLE bookings (
   end_time bigint
 );
 
+CREATE TABLE messages (
+  message_id SERIAL PRIMARY KEY,
+  spot_id integer,
+  renter_id integer,
+  message_text text,
+  message_time bigint,
+  host_to_renter boolean
+);
+
 CREATE INDEX spots_gix  ON spots USING GIST (geom);
 
 -- Add 2 rows

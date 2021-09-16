@@ -4,7 +4,13 @@ import LoginBox from './LoginBox.jsx';
 import Profile from '../profile/Profile.jsx';
 import MapView from '../mapview/MapView.jsx';
 import 'regenerator-runtime/runtime';
-import { Router } from 'react-router';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  withRouter
+} from "react-router-dom";
 const axios = require('axios');
 
 class Login extends React.Component {
@@ -60,6 +66,7 @@ class Login extends React.Component {
           newState = {
             showLogin: false
           };
+          this.props.history.push('/mapview');
         // } else if (result.data === 'failLogin'){
         } else {
           newState = {
@@ -100,20 +107,9 @@ class Login extends React.Component {
           </div>
         </div>
       )
-    } else if (this.state.toRegister) {
-      return (
-        <Profile type={'registration'} />
-        );
-        // <Route path="/login" component={Profile}/>
-    } else {
-      return (
-        // <div>Login success! Let's search parking spot!</div>
-        <MapView />
-      );
     }
-
   }
 }
 
 
-export default Login;
+export default withRouter(Login);

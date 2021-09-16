@@ -6,6 +6,7 @@ import './spotManagement.css';
 import PageHeader from '../shared/pageHeader/pageHeader.jsx';
 import UpdateSpot from './UpdateSpot.jsx';
 import AddSpot from './AddSpot.jsx';
+import TabSelector from '../shared/tabSelector/TabSelector.jsx'
 
 class ManageSpots extends React.Component {
   constructor(props) {
@@ -89,6 +90,7 @@ class ManageSpots extends React.Component {
 
     return (
       <div>
+        <TabSelector />
         {mainContent}
       </div>
     );

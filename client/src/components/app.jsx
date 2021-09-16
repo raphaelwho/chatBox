@@ -6,46 +6,50 @@ import './app.css';
 import MapView from './mapview/MapView.jsx';
 import BottomModal from './shared/bottomModal/BottomModal.jsx';
 import ManageSpots from './spotManagement/ManageSpots.jsx';
-import TabSelector from './shared/tabSelector/TabSelector.jsx'
+import Chat from './chat/Chat.jsx'
+
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      locations: [],
-    };
   }
 
-  componentDidMount() {
-    fetch(`/spots`)
-      .then((resp) => resp.json())
-      .then((spots) => {
-        console.log('SPOTS', spots);
-        this.setState({ locations: spots })
-      })
-      .catch((err) => {
-        console.log('ERROR GETTING SPOTS', err);
-      })
-  }
 
-  onIconClick = () => {
-    console.log('HELLO')
-  }
 
 
   render() {
     return (
-
-      <div>
-        <TabSelector></TabSelector>
-        <PageHeader title={"TEMP TITLE"} isVisible={true} />
-        <MapView />
-        <ManageSpots />
-
-        <Profile type={'update'} />
-        <Profile type={'regristration'} />
-        <Login></Login>
-      </div>
+      <Router>
+        <div>
+          <Switch>
+            <Route path="/mapview">
+              <MapView />
+            </Route>
+            <Route path="/profile-register">
+              <Profile type={'registration'} />
+            </Route>
+            <Route path="/spot">
+              <ManageSpots/>
+            </Route>
+            <Route path="/profile-update">
+              <Profile type={'update'} />
+            </Route>
+            <Route path="/chat">
+              <Chat />
+            </Route>
+            <Route exact path="/">
+              <Login />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     )
   };
 }
