@@ -15,10 +15,10 @@ class MapContainer extends React.Component {
     }
   }
 
-  onClick = (spot) => {  // this isn't bound because of that new experimental thing...
+  onClick = (spot) => {
     this.setState({selected: spot});
     this.props.selectSpot(spot);
-    this.props.openBottomModal();
+    this.props.openBottomModal(); //TODO this could be improved by not opening the modal if it's already open...
   }
 
   render() {

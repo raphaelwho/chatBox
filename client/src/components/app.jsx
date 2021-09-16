@@ -20,10 +20,8 @@ class App extends React.Component {
     console.log('HELLO')
   }
 
-
   render() {
     return (
-
       <div>
         {/* <TabSelector></TabSelector>
         <PageHeader title={"TEMP TITLE"} isVisible={true} /> */}
