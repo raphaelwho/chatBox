@@ -1,5 +1,12 @@
 const model = require('../../models/manageSpots.js');
 const fs = require('fs');
+const AWS = require('aws-sdk');
+const multiparty = require('multiparty');
+
+const s3 = new AWS.S3({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+});
 
 const getMySpots = (req, res) => {
  // req.query.id = hostid
@@ -55,29 +62,48 @@ const updateSpotDetails = (req, res) => {
 
 const uploadImage = (req, res) => {
   // upload to s3
-  const fileContent = fs.readFileSync(req.query.file);
+  // console.log(req);
+  // const fileContent = fs.readFileSync(req);
 
-  const params = {
-    Bucket: 'galileo-boc',
-    Key: `${Data.now()}`,
-    Body: fileContent
-  };
+  const form = new multiparty.Form();
 
-  s3.upload(params, (err, data) => {
-    if (err) {
-      console.log('error adding img to s3', err);
-      // res.sendStatus(400)
-    } else {
-      console.log('success adding image')
-      // get url now?  data.Location stringify
-      // res.send(data.Location);
-    }
-  })
+  console.log(form);
+
+  form.on('part', function(part) {
+    const params = {
+      Bucket: 'galileo-boc',
+      Key: `${Date.now()}`,
+      Body: part,
+      ContentType:'image/jpeg'
+    };
+
+    s3.upload(params, (err, data) => {
+      if (err) {
+        console.log('error adding img to s3', err);
+        res.sendStatus(500)
+      } else {
+
+        console.log('success adding image', data)
+        // get url now?  data.Location stringify
+        res.status(201);
+        res.send(data.Location);
+      }
+    })
+  });
+
+  form.parse(req);
+  // const params = {
+  //   Bucket: 'galileo-boc',
+  //   Key: `${Date.now()}`,
+  //   Body: fileContent
+  // };
+
 }
 
 module.exports = {
   getMySpots,
   addNewSpot,
   getSpotDetails,
-  updateSpotDetails
+  updateSpotDetails,
+  uploadImage
 }

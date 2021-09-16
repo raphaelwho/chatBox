@@ -18,5 +18,6 @@ router.get('/my-spots', Spot.getMySpots);
 router.get('/spot-details', Spot.getSpotDetails);
 router.put('/update-spot-details', Spot.updateSpotDetails);
 router.post('/add-spot', Spot.addNewSpot);
+router.post('/uploadImage', Spot.uploadImage)
 
 module.exports = router;
