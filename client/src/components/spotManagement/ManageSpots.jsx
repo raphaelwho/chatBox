@@ -50,7 +50,7 @@ class ManageSpots extends React.Component {
     this.setState({
       updateSpot: true,
       currentSpotId: id
-    });
+    }, () => console.log(this.state));
   }
 
   handleAddSpotClick(e) {
