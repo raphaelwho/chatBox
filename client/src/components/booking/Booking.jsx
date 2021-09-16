@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import './Booking.css';
 import PageHeader from '../shared/pageHeader/pageHeader.jsx';
 import Button from '../shared/button/button.jsx';
@@ -13,12 +14,33 @@ class Booking extends React.Component {
       hour: 2,
       photo: "https://archinect.imgix.net/uploads/3d/3ddb00ec0feb2ed25b6804cfbc16c7d1.jpg?auto=compress%2Cformat"
     };
+    this.spotID = 27;
+    this.renterID = 3;
+    this.startTime = 1631750952568;
+    this.endTime = 1631750989351;
+    this.handleConfirmBookingButtonClick = this.handleConfirmBookingButtonClick.bind(this);
+  }
+
+  handleConfirmBookingButtonClick() {
+    axios.post('/booking', {
+      spot_id: this.spotID,
+      renter_id: this.renterID,
+      start_time: this.startTime,
+      end_time: this.endTime
+    })
+      .then((res) => {
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
   render () {
     return (
       <div id="booking">
-        <PageHeader title={'Confirm Booking'} isVisible={true} />
+        <div id="booking-header">
+          <PageHeader title={'Confirm Booking'} isVisible={true} />
+        </div>
         <div id="booking-body">
             <div id="booking-spot-container">
               <div id="booking-spot-photo-container">
@@ -59,13 +81,12 @@ class Booking extends React.Component {
           </div>
           <hr className="booking-hr" />
           <div id="booking-button-container">
-            <Button text={'Confirm'} />
+            <Button text={'Confirm'} func={this.handleConfirmBookingButtonClick} />
           </div>
         </div>
       </div>
     )
   };
-
 }
 
 export default Booking;
