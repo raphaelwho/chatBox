@@ -12,7 +12,7 @@ class AddSpot extends React.Component {
 
     this.state = {
       address: '',
-      type: '',
+      type: 'driveway',
       price: '',
       photo: '',
       hostId: this.props.id,
@@ -42,7 +42,7 @@ class AddSpot extends React.Component {
       // maybe not necessary
       await this.setState({
         address: '',
-        type: '',
+        type: 'Driveway',
         price: '',
         photo: '',
       });
@@ -114,6 +114,7 @@ class AddSpot extends React.Component {
           <input type="text" id="address" className='txtBoxInput' onChange={this.handleChange}></input>
           <label>Type</label>
           <select className='txtBoxInput add-spot-select' id='type' onChange={this.handleChange}>
+            {/* <option selected disabled>Choose Type</option> */}
             <option value='driveway'>Driveway</option>
             <option value='garage'>Garage</option>
             <option value='carport'>Carport</option>

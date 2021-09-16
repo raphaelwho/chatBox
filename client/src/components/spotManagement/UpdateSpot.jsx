@@ -103,8 +103,6 @@ class UpdateSpot extends React.Component {
     return (
       <div className='add-spot-home'>
 
-       {/* make into box show photo*/}
-
        <div className='add-spot-form'>
           <div style={{backgroundImage: `url("${this.state.photo}")`, backgroundSize: 'cover'}}className='add-spot-photo'>
             <label for='file' style={{color: 'white'}} className='photo-upload'>Edit Photo</label>
@@ -116,7 +114,7 @@ class UpdateSpot extends React.Component {
           <input type="text" id="address" value={this.state.address} className='txtBoxInput' onChange={this.handleChange} disabled></input>
           <label>Type</label>
           {/* make select default value match this.props.type initially */}
-          <select className='txtBoxInput add-spot-select' id='type' onChange={this.handleChange}>
+          <select value={this.state.type} className='txtBoxInput add-spot-select' id='type' onChange={this.handleChange}>
             <option value='driveway'>Driveway</option>
             <option value='garage'>Garage</option>
             <option value='carport'>Carport</option>
