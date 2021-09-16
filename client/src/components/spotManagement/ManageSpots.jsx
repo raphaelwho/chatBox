@@ -10,10 +10,12 @@ import AddSpot from './AddSpot.jsx';
 class ManageSpots extends React.Component {
   constructor(props) {
     super(props);
-    // need host id from somewhere
+
+    // console.log(localStorage.getItem('username'));
+    // console.log(localStorage.getItem('user_id'));
 
     this.state = {
-      userId: 1,
+      userId: localStorage.getItem('user_id') || null,
       spots: [],
       addSpot: false,
       updateSpot: false,
@@ -36,7 +38,7 @@ class ManageSpots extends React.Component {
     axios.get(`http://localhost:3000/my-spots?id=${id}`)
       .then((results) => {
         console.log('results');
-        this.setState({ spots: results.data });
+        this.setState({ spots: results.data }, () => console.log(this.state));
       })
       .catch((err) => {
         console.log('fetching error', err);

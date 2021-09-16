@@ -1,8 +1,5 @@
-#booking-body {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+#booking-header {
+  height: 5vh;
 }
 
 .booking-hr {
@@ -12,11 +9,15 @@
   background-color: rgba(0, 0, 0, 0.25);
 }
 
+#booking-price-container, #booking-policy-container, #booking-spot-photo-container, #booking-spot-address-container {
+  padding-left: 15vw;
+  padding-right: 15vw;
+}
+
 #booking-spot-container {
-  margin: auto;
   height: 30vh;
   display: grid;
-  grid-template-columns: 45vw 30vw;
+  grid-template-columns: 50vw 50vw;
 }
 
 #booking-price-container {
@@ -24,12 +25,11 @@
 }
 
 #booking-policy-container {
-  height: 40vh;
-  padding-left: 10vw;
+  height: 35vh;
 }
 
 #booking-button-container {
-  margin: auto;
+  display: flex;
   bottom: 0;
 }
 
@@ -52,8 +52,8 @@
 }
 
 #booking-price-table {
-  width: 90vw;
-  padding: 3vh 10vw 0 10vw;
+  width: 70vw;
+  padding-top: 3vh;
 }
 
 #booking-price-table td {
@@ -70,5 +70,6 @@
 
 #booking-policy-header {
   font-weight: bold;
-  padding: 3vh 0 2vh 0;
+  padding-top: 3vh;
+  padding-bottom: 2vh;
 }
