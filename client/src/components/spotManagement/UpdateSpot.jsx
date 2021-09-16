@@ -46,7 +46,6 @@ class UpdateSpot extends React.Component {
     axios.put('http://localhost:3000/update-spot-details', options)
       .then( async () => {
         console.log('success updating');
-        // maybe not necessary
         await this.setState({
           address: '',
           type: '',
@@ -56,9 +55,7 @@ class UpdateSpot extends React.Component {
         return;
       })
       .then(() => {
-        // update parent state updateSpot to null
         this.props.resetHomePage();
-        // jump back to manage spot home - in that case must elevate this func to homepage
       })
       .catch((err) => {
         console.log('error updating', err);
@@ -87,7 +84,6 @@ class UpdateSpot extends React.Component {
     axios.post(`http://localhost:3000/uploadImage`, formData)
       .then((results) => {
         // upon success response, get the photo url from s3 and add it to state
-        // url comes back right here?
         let url = results.data;
         console.log('photo post results', url);
         this.setPhotoUrl(url);

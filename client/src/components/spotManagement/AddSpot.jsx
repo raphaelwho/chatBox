@@ -39,10 +39,9 @@ class AddSpot extends React.Component {
     })
     .then( async () => {
       console.log('success adding');
-      // maybe not necessary
       await this.setState({
         address: '',
-        type: 'Driveway',
+        type: 'driveway',
         price: '',
         photo: '',
       });
@@ -54,8 +53,6 @@ class AddSpot extends React.Component {
     .catch((err) => {
       console.log('error adding', err);
     })
-
-    // jump back to manage spot home - in that case must elevate this func to homepage
   }
 
   handleChange() {
@@ -79,7 +76,6 @@ class AddSpot extends React.Component {
     axios.post(`http://localhost:3000/uploadImage`, formData)
       .then((results) => {
         // upon success response, get the photo url from s3 and add it to state
-        // url comes back right here?
         let url = results.data;
         console.log('photo post results', url);
         this.setPhotoUrl(url);
@@ -114,7 +110,6 @@ class AddSpot extends React.Component {
           <input type="text" id="address" className='txtBoxInput' onChange={this.handleChange}></input>
           <label>Type</label>
           <select className='txtBoxInput add-spot-select' id='type' onChange={this.handleChange}>
-            {/* <option selected disabled>Choose Type</option> */}
             <option value='driveway'>Driveway</option>
             <option value='garage'>Garage</option>
             <option value='carport'>Carport</option>
