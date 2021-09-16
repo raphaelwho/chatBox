@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'development') {
   password = process.env.PG_DB_PASS_DEV;
   host = 'localhost';
 } else if (process.env.NODE_ENV === 'test') {
-  database = 'postgres';
+  database = 'galileo_test';
   user = 'postgres';
   password = process.env.PG_DB_PASS_TEST;
   host = 'localhost';

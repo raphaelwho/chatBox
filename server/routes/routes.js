@@ -4,7 +4,8 @@ const getSpotsRoute = require('./controllers/getSpots').getSpotsRoute;
 
 const profileRequests = require('./controllers/profileRequests');
 const { getUser } = require('./controllers/getUser');
-const Spot = require('./controllers/manageSpots')
+const Spot = require('./controllers/manageSpots');
+const booking = require('./controllers/postBooking');
 
 console.log(Spot);
 
@@ -19,5 +20,6 @@ router.get('/spot-details', Spot.getSpotDetails);
 router.put('/update-spot-details', Spot.updateSpotDetails);
 router.post('/add-spot', Spot.addNewSpot);
 router.post('/uploadImage', Spot.uploadImage)
+router.post('/booking', booking.postBooking);
 
 module.exports = router;
